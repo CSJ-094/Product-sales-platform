@@ -1,5 +1,5 @@
 package Product_sales_platform.dao;
 
-public class SelDAO {
+public interface SelDAO {
 
 }
