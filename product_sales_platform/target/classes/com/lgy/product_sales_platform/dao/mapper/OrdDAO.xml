@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.lgy.product_sales_platform.dao.OrdDAO">
+
+  <select id="getOrdersByMemberId" resultType="com.lgy.product_sales_platform.dto.OrdDTO">
+        SELECT
+            ORD_ID as ordId,
+            ORD_MEMID as ordMemid,
+            ORD_DATE as ordDate,
+            ORD_AMOUNT as ordAmount,
+            ORD_DFEE as ordDfee,
+            ORD_DISCOUNT as ordDiscount,
+            ORD_STATUS as ordStatus
+        FROM ORDER_DB
+        WHERE ORD_MEMID = #{memberId}
+        ORDER BY ORD_DATE DESC
+    </select>
+  
+</mapper>

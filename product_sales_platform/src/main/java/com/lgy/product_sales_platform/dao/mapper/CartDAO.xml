@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgy.product_sales_platform.dao.CartDAO">
+
+    <resultMap id="cartResultMap" type="com.lgy.product_sales_platform.dto.CartDTO">
+        <id property="cartId" column="CART_ID"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="prodId" column="PROD_ID"/>
+        <result property="cartQty" column="CART_QTY"/>
+        <result property="regDate" column="REG_DATE"/>
+        <!-- Product details for cart list display -->
+        <result property="prodName" column="PROD_NAME"/>
+        <result property="prodPrice" column="PROD_PRICE"/>
+        <result property="prodSeller" column="PROD_SELLER"/>
+    </resultMap>
+
+    <select id="getCartListByMemberId" resultMap="cartResultMap">
+        SELECT
+            C.CART_ID,
+            C.MEMBER_ID,
+            C.PROD_ID,
+            C.CART_QTY,
+            C.REG_DATE,
+            P.PROD_NAME,
+            P.PROD_PRICE,
+            P.PROD_SELLER
+        FROM CART_DB C
+        JOIN PRODUCT_DB P ON C.PROD_ID = P.PROD_ID
+        WHERE C.MEMBER_ID = #{memberId}
+        ORDER BY C.REG_DATE DESC
+    </select>
+
+    <select id="getCartItemByMemberIdAndProdId" resultType="com.lgy.product_sales_platform.dto.CartDTO">
+        SELECT
+            CART_ID as cartId,
+            MEMBER_ID as memberId,
+            PROD_ID as prodId,
+            CART_QTY as cartQty,
+            REG_DATE as regDate
+        FROM CART_DB
+        WHERE MEMBER_ID = #{memberId} AND PROD_ID = #{prodId}
+    </select>
+
+    <insert id="insertCart">
+        INSERT INTO CART_DB (CART_ID, MEMBER_ID, PROD_ID, CART_QTY, REG_DATE)
+        VALUES (CART_SEQ.NEXTVAL, #{memberId}, #{prodId}, #{cartQty}, SYSDATE)
+    </insert>
+
+    <update id="updateCartQuantity">
+        UPDATE CART_DB
+        SET CART_QTY = #{cartQty}
+        WHERE CART_ID = #{cartId}
+    </update>
+
+    <delete id="deleteCart">
+        DELETE FROM CART_DB
+        WHERE CART_ID = #{cartId} AND MEMBER_ID = #{memberId}
+    </delete>
+
+</mapper>

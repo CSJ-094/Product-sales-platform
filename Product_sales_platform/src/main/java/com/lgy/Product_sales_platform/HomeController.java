@@ -1,4 +1,4 @@
-package com.lgy.Product_sales_platform;
+package com.lgy.product_sales_platform;
 
 import java.text.DateFormat;
 import java.util.Date;

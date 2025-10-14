@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.lgy.product_sales_platform.dao.ProdDAO">
+
+ <select id="getProductById" resultType="com.lgy.product_sales_platform.dto.ProdDTO">
+        SELECT
+            PROD_ID as prodId,
+            PROD_SELLER as prodSeller,
+            PROD_NAME as prodName,
+            PROD_PRICE as prodPrice,
+            PROD_STOCK as prodStock,
+            PROD_DESC as prodDesc,
+            PROD_CODE as prodCode,
+            PROD_REG as prodReg,
+            PROD_UPD as prodUpd
+        FROM PRODUCT_DB
+        WHERE PROD_ID = #{prodId}
+    </select>
+  
+</mapper>
