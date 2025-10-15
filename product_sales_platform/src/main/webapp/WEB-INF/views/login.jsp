@@ -320,9 +320,6 @@
                 </div>
                 
                 <div class="options-group">
-                    <label class="remember-me">
-                        <input type="checkbox" name="remember"> 자동 로그인
-                    </label>
                     <a href="#" class="find-link">아이디/비밀번호 찾기</a>
                 </div>
                 
