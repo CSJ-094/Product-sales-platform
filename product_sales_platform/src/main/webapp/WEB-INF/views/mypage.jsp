@@ -342,7 +342,7 @@
     <header class="main-header">
         <div class="header-content">
             <div class="logo">
-                <a href="/main" title="메인 페이지로 이동">상점 로고</a>
+                <a href='<c:url value="/mainpage"/>' title="메인 페이지로 이동">상점 로고</a>
             </div>
 
             <nav class="categories">
@@ -378,8 +378,8 @@
                         
                         <div class="form-group">
                             <label for="MEMBER_ID_VIEW">아이디</label>
-                            <input type="text" id="MEMBER_ID_VIEW" value="${member.memberId}" disabled>
-                            <input type="hidden" name="MEMBER_ID" value="${member.memberId}">
+                            <input type="text" id="MEMBER_ID_VIEW" value="${memberInfo.memberId}" disabled>
+                            <input type="hidden" name="MEMBER_ID" value="${memberInfo.memberId}">
                         </div>
 
                         <div class="form-group">
@@ -389,17 +389,17 @@
                         
                         <div class="form-group">
                             <label for="MEMBER_NAME">이름</label>
-                            <input type="text" id="MEMBER_NAME" name="MEMBER_NAME" value="${member.memberName}" required>
+                            <input type="text" id="MEMBER_NAME" name="MEMBER_NAME" value="${memberInfo.memberName}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="MEMBER_EMAIL">이메일</label>
-                            <input type="email" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${member.memberEmail}" required>
+                            <input type="email" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${memberInfo.memberEmail}" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="MEMBER_PHONE">전화번호</label>
-                            <input type="tel" id="MEMBER_PHONE" name="MEMBER_PHONE" value="${member.memberPhone}" placeholder="예: 010-1234-5678">
+                            <input type="tel" id="MEMBER_PHONE" name="MEMBER_PHONE" value="${memberInfo.memberPhone}" placeholder="예: 010-1234-5678">
                         </div>
 
                         <div class="form-group address-group">
@@ -410,7 +410,7 @@
                                 <button type="button" class="address-search-btn">주소 검색</button>
                             </div>
                             
-                            <input type="text" id="MEMBER_ADDR" name="MEMBER_ADDR" value="${member.memberAddr}" placeholder="주소 (직접 입력 또는 주소 검색 결과)">
+                            <input type="text" id="MEMBER_ADDR" name="MEMBER_ADDR" value="${memberInfo.memberAddr}" placeholder="주소 (직접 입력 또는 주소 검색 결과)">
                         </div>
                         
                         <div class="button-group">

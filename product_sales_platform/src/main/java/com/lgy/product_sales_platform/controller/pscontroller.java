@@ -37,27 +37,33 @@ public class pscontroller {
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage_view(HttpSession session, Model model) {
 	    log.info("@# mypage_view() - 정보 조회 및 리스트 로드");
+
+	    // 세선에서 아이디 받아옴
+	    String memberId = (String) session.getAttribute("memberId");
+	    String memberName = (String) session.getAttribute("memberName");
 	    
-	    String testId = "testuser01";
-	    session.setAttribute("sessionID", testId);
-	    
-	    String memberId = (String) session.getAttribute("sessionID");
-	    
-	    // 1. 회원 정보 조회
+	    // 로그인 체크
+	    if (memberId == null) {
+	        log.warn("@# mypage_view() - 세션 ID 없음. 로그인 페이지로 리다이렉트.");
+	        return "redirect:/login";
+	    }
 	    MemDAO memDao = sqlSession.getMapper(MemDAO.class);
 	    MemDTO memberInfo = memDao.getMemberInfo(memberId);
+	        
 	    
 	    if (memberInfo != null) {
-	        model.addAttribute("member", memberInfo);
+	    	model.addAttribute("memberId", memberId);
+	    	model.addAttribute("memberName", memberName);
+	    	model.addAttribute("memberInfo", memberInfo);
 	    } else {
 	        log.error("@# 회원 정보 조회 실패: ID={}", memberId);
 	    }
 	    
-	    // 2. ⭐️ 찜목록 조회 및 Model에 추가 ⭐️
+	    // 찜목록 조회 및 Model에 추가
         List<ProdDTO> wishlist = wishlistService.getWishlistByMemberId(memberId);
         model.addAttribute("wishlist", wishlist);
         
-	    // 3. ⭐️ 주문 내역 조회 및 Model에 추가 ⭐️
+	    // 주문 내역 조회 및 Model에 추가
         List<OrdDTO> orderList = orderService.getOrdersByMemberId(memberId);
         model.addAttribute("orderList", orderList);
 

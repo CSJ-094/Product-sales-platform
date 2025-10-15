@@ -32,6 +32,8 @@
 		<beans:property name="password" value="tiger"></beans:property>
 	</beans:bean>
 	
+	<resources mapping="/img/**" location="/img/" />
+	
 	<!-- SqlsessionTemplate 타입의 sqlSession 객체는 sqlSessionFactory 객체를 포함한다. -->
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
