@@ -320,10 +320,14 @@
                 </div>
                 
                 <div class="options-group">
+<<<<<<< HEAD
                     <label class="remember-me">
                         <input type="checkbox" name="remember"> 자동 로그인
                     </label>
                     <a href='#' onclick="location.href='find'">아이디/비밀번호 찾기</a>
+=======
+                    <a href="#" class="find-link">아이디/비밀번호 찾기</a>
+>>>>>>> 49a06f6d5077949727c635030e42e157eb14c1ef
                 </div>
                 
                 <button type="submit" class="btn btn-login">로그인</button>
