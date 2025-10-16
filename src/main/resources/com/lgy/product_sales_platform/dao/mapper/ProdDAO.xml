@@ -59,5 +59,9 @@
             SYSDATE
         )
     </insert>
+
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM PRODUCT_DB WHERE PROD_ID = #{prodId}
+    </delete>
   
 </mapper>

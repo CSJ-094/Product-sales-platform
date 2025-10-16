@@ -60,19 +60,40 @@ public class ProductController {
         }
 
         try {
-            // 판매자 ID를 현재 로그인한 관리자 ID로 설정
             prodDTO.setProdSeller(memberId);
             productService.registerProduct(prodDTO, prodImageFiles);
             redirectAttributes.addFlashAttribute("message", "상품이 성공적으로 등록되었습니다.");
-        } catch (IOException e) {
-            log.error("File upload failed", e);
-            redirectAttributes.addFlashAttribute("error", "파일 업로드 중 오류가 발생했습니다.");
         } catch (Exception e) {
             log.error("Product registration failed", e);
             redirectAttributes.addFlashAttribute("error", "상품 등록 중 오류가 발생했습니다.");
         }
 
-        // 상품 등록 후 마이페이지의 상품 관리 섹션으로 리다이렉트
+        return "redirect:/mypage#product-management";
+    }
+
+    // 관리자: 상품 삭제 처리
+    @PostMapping("/admin/delete")
+    public String deleteProduct(@RequestParam("prodId") int prodId, 
+                                HttpSession session, 
+                                RedirectAttributes redirectAttributes) {
+        log.info("Attempting to delete product with ID: {}", prodId);
+        String memberId = (String) session.getAttribute("memberId");
+        if (memberId == null || !"admin".equals(memberId)) {
+            log.warn("Unauthorized delete attempt for prodId: {} by non-admin user.", prodId);
+            redirectAttributes.addFlashAttribute("error", "접근 권한이 없습니다.");
+            return "redirect:/login";
+        }
+
+        try {
+            productService.deleteProduct(prodId);
+            log.info("Successfully deleted product with ID: {}", prodId);
+            redirectAttributes.addFlashAttribute("message", "상품이 성공적으로 삭제되었습니다.");
+        } catch (Exception e) {
+            log.error("Product deletion failed for prodId: {}", prodId, e);
+            redirectAttributes.addFlashAttribute("error", "상품 삭제 중 오류가 발생했습니다.");
+        }
+
+        log.info("Redirecting to /mypage#product-management after delete attempt.");
         return "redirect:/mypage#product-management";
     }
 }

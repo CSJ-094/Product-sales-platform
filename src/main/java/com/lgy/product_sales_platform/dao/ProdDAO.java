@@ -13,4 +13,6 @@ public interface ProdDAO {
     List<ProdDTO> getAllProducts();
 
     void registerProduct(ProdDTO prodDTO);
+
+    void deleteProduct(int prodId);
 }

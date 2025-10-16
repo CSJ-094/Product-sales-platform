@@ -73,4 +73,28 @@ public class ProductService {
         productMapper.registerProduct(prodDTO);
         log.info("Product registration query executed.");
     }
+
+    @Transactional
+    public void deleteProduct(int prodId) {
+        ProdDTO product = productMapper.getProductById(prodId);
+        if (product != null && product.getProdImage() != null && !product.getProdImage().isEmpty()) {
+            String[] imagePaths = product.getProdImage().split(",");
+            for (String imagePath : imagePaths) {
+                // 기본 이미지는 삭제하지 않음
+                if (imagePath != null && !imagePath.contains("default-product.png")) {
+                    String realPath = servletContext.getRealPath(imagePath);
+                    File fileToDelete = new File(realPath);
+                    if (fileToDelete.exists()) {
+                        if (fileToDelete.delete()) {
+                            log.info("Deleted image file: {}", realPath);
+                        } else {
+                            log.warn("Failed to delete image file: {}", realPath);
+                        }
+                    }
+                }
+            }
+        }
+        productMapper.deleteProduct(prodId);
+        log.info("Product deletion query executed for prodId: {}", prodId);
+    }
 }

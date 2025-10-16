@@ -631,14 +631,17 @@
                                 <tbody>
                                     <c:forEach var="product" items="${productList}">
                                         <tr>
-                                            <td><img src="<c:url value='${product.prodImage}'/>" alt="${product.prodName}"></td>
+                                            <td><img src="<c:url value='${product.prodImage.split(",")[0]}'/>" alt="${product.prodName}"></td>
                                             <td>${product.prodName}</td>
                                             <td><fmt:formatNumber value="${product.prodPrice}" type="currency" currencySymbol="₩"/></td>
                                             <td>${product.prodStock}</td>
                                             <td><fmt:formatDate value="${product.prodReg}" pattern="yyyy-MM-dd"/></td>
                                             <td>
                                                 <a href="#" class="action-btn">수정</a>
-                                                <a href="#" class="action-btn remove-btn">삭제</a>
+                                                <form action="<c:url value='/product/admin/delete'/>" method="post" style="display:inline;" onsubmit="return confirm('정말 이 상품을 삭제하시겠습니까?');">
+                                                    <input type="hidden" name="prodId" value="${product.prodId}">
+                                                    <button type="submit" class="action-btn remove-btn">삭제</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </c:forEach>
