@@ -130,3 +130,19 @@ table tbody tr:nth-child(even) { background-color: #f9f9f9; }
 }
 .footer-content p { margin-bottom: 4px; }
 .footer-content p:last-child { margin-bottom: 0; }
+
+/* 카테고리 */
+.cat-sublist {
+  padding: 10px 0 10px 10px;
+  display: block;
+}
+.cat-subitem {
+  padding: 4px 10px 4px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #f0f0f0;
+}
+.cat-subitem:last-child {
+    border-bottom: none;
+}

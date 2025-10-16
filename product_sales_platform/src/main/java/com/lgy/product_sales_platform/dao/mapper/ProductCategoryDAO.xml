@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lgy.product_sales_platform.dao.mapper.ProductCategoryDAO">
+<mapper namespace="com.lgy.product_sales_platform.dao.ProductCategoryDAO">
 
     <!-- resultMap: DB 컬럼 → ProductCategoryDTO 필드 매핑 -->
     <resultMap id="ProductCategoryMap" type="com.lgy.product_sales_platform.dto.ProductCategoryDTO">

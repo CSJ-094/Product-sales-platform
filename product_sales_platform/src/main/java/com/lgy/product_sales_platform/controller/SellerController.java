@@ -29,7 +29,7 @@ import com.lgy.product_sales_platform.dto.SellerDTO;
 import com.lgy.product_sales_platform.dto.MemDTO; // ⭐️ MemberDetail을 위한 MemDTO 추가 (실제 DTO명 확인 필요)
 import com.lgy.product_sales_platform.service.ProductService;
 import com.lgy.product_sales_platform.service.SellerService;
-
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/seller") // ✅ 모든 URL에 /seller를 붙이는 대신 클래스 레벨에 매핑
@@ -105,25 +105,24 @@ public class SellerController {
 	
 	//상품 등록 처리 + 카테고리 매핑(Service로 위임)
 	@PostMapping("/products")
-	public String createProduct(@ModelAttribute ProdDTO dto,
-	                            @RequestParam(value = "catIds", required = false) List<Long> catIds, // ⭐️ 추가
-	                            @RequestParam(value = "mainCatId", required = false) Long mainCatId, // ⭐️ 추가
-	                            RedirectAttributes ra,                                          // ⭐️ 추가
-	                            HttpSession session) {                                            // ⭐️ 추가된 세션
+    public String createProduct(@ModelAttribute ProdDTO dto,
+                                 @RequestParam(value = "catIds", required = false) List<Long> catIds,
+                                 @RequestParam(value = "mainCatId", required = false) Long mainCatId,
+                                 @RequestParam("uploadFile") MultipartFile file, 
+                                 RedirectAttributes ra,
+                                 HttpSession session) {
 
-	    // ⭐️ 세션에서 로그인된 판매자 ID를 가져와 설정
-	    SellerDTO seller = (SellerDTO) session.getAttribute("seller");
-	    
-	    // 1. 보안 체크: 로그인 세션이 없으면 로그인 페이지로 리다이렉트
-	    if (seller == null) {
-	        return "redirect:/seller/login"; 
-	    }
+        SellerDTO seller = (SellerDTO) session.getAttribute("seller");
+        
+        if (seller == null) {
+            return "redirect:/seller/login";
+        }
 	    
 	    // 2. 로그인된 판매자 ID를 DTO에 설정
 	    dto.setProdSeller(seller.getSelId()); 
 	    
 	    // 3. 상품 등록 서비스 호출 (catIds, mainCatId 사용)
-	    productService.createProductWithCategories(dto, catIds, mainCatId);
+	    productService.createProductWithCategories(dto, catIds, mainCatId, file);
 	    
 	    // 4. 리다이렉트 설정 (ra 사용)
 	    ra.addFlashAttribute("createdId", dto.getProdId());
