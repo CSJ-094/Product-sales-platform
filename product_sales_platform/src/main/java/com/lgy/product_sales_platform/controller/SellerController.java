@@ -43,14 +43,14 @@ public class SellerController {
 	@Autowired private ProductCategoryDAO productCategoryDAO;
 	@Autowired private SellerService sellerService;
 	
-	// 1. 판매자 로그인 페이지 이동 (GET: /seller/login)
-    @GetMapping("/login")
+	// 1. 판매자 로그인 페이지 이동 
+	@GetMapping("/login")
     public String sellerLogin(HttpSession session) {
         // 이미 로그인 되어있다면 메인으로 리다이렉트
-        if (session.getAttribute("seller") != null) {
-            return "redirect:/seller/main";
-        }
-        return "seller/login"; // /WEB-INF/views/seller/login.jsp
+		if (session.getAttribute("seller") != null) {
+		return "redirect:/seller/mypage";
+		}
+        return "login/login"; 
     }
 
     // 2. 판매자 로그인 처리 (POST: /seller/loginCheck)
@@ -63,22 +63,13 @@ public class SellerController {
         if (resultDTO != null) {
             // 로그인 성공: 세션에 판매자 정보(seller) 저장
             session.setAttribute("seller", resultDTO); 
-            return "redirect:/seller/main"; // 판매자 메인 페이지로 이동
+            return "redirect:/seller/mypage"; // 판매자 메인 페이지로 이동
         } else {
             // 로그인 실패
-            return "redirect:/seller/login?error=fail"; 
+            return "redirect:login/login?error=fail"; 
         }
     }
-    @GetMapping("/main")
-    public String sellerMain(HttpSession session, Model model) {
-        // **[필수 보안 체크]** 세션에 판매자 정보가 없으면 로그인 페이지로 강제 이동
-        if (session.getAttribute("seller") == null) {
-             return "redirect:/seller/login?error=session"; 
-        }
-        model.addAttribute("activeMenu", "main");
-        // TODO: 메인 페이지에 필요한 대시보드 데이터(매출, 주문 수 등) 조회 로직 추가
-        return "seller/mainpage"; // /WEB-INF/views/seller/main.jsp
-    }
+    
     // 4. 판매자 로그아웃 (GET: /seller/logout)
     @GetMapping("/logout")
     public String sellerLogout(HttpSession session) {
