@@ -30,7 +30,8 @@
 
 						// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
 						if (data.userSelectedType === 'R') {
-							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+							// 법정동명이 있을 경우 추가한다.
+							// (법정리는 제외)
 							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
 							if (data.bname !== ''
 									&& /[동|로|가]$/g.test(data.bname)) {
@@ -47,58 +48,147 @@
 								extraAddr = ' (' + extraAddr + ')';
 							}
 							// 조합된 참고항목을 해당 필드에 넣는다.
-							document.getElementById("member_addr1").value = extraAddr;
+							document.getElementById("memberAddr1").value = extraAddr;
 
 						} else {
-							document.getElementById("member_addr2").value = '';
+							document.getElementById("memberAddr2").value = '';
 						}
 
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('member_zipcode').value = data.zonecode;
-						document.getElementById("member_addr1").value = addr;
+						document.getElementById('memberZipcode').value = data.zonecode;
+						document.getElementById("memberAddr1").value = addr;
 						// 커서를 상세주소 필드로 이동한다.
-						document.getElementById("member_addr2").focus();
+						document.getElementById("memberAddr2").focus();
 					}
 				}).open();
 	}
 
 </script>
 <style>
+/* mainpage.jsp 스타일을 기반으로 수정 */
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { 
+		font-family: 'Noto Sans KR', 'Montserrat', sans-serif; 
+		color: #333; 
+		line-height: 1.6; 
+		background-color: #f9f9f9; 
+		min-height: 100vh;
+	}
+
 .container {
-	width: 400px;
-	margin: 0 auto;
-	border: 1px solid #ccc;
-	padding: 20px;
-	box-shadow: 0px 0px 10px #ccc;
-	border-radius: 8px;
-	font-family: Arial, sans-serif;
+	width: 650px; /* ⭐️ 너비 200px 확장 (450px -> 650px) */
+	margin: 50px auto;
+	border: 1px solid #ccc; /* 테두리 유지 */
+	padding: 30px; /* 패딩 확장 */
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 강화 */
+	border-radius: 4px; /* 둥근 박스 제거(작게) */
+	background-color: #ffffff;
 }
 
 .form-group {
-	margin-bottom: 15px;
+	margin-bottom: 20px; /* 간격 확장 */
 	display: flex;
-	align-items: center;
+	align-items: center; /* ⭐️ 수직 정렬 유지 (입력 필드와 버튼 높이 맞춤) */
 }
 
 .form-group label {
-	width: 100px;
-	font-weight: bold;
+	flex-shrink: 0; /* 라벨 너비 고정 */
+	width: 120px; /* 라벨 너비 확장 */
+	font-weight: 500;
 }
 
-.form-group input {
-	flex: 1;
-	padding: 5px;
+.form-group input[type="text"],
+.form-group input[type="password"] {
+	flex: 1; /* 남은 공간을 입력 필드가 차지 */
+	padding: 8px 10px;
+	border: 1px solid #e0e0e0;
+	border-radius: 3px;
 }
+
+/* 버튼 스타일: mainpage.jsp의 auth-btn 스타일 기반 */
+.form-group button, .form-actions input[type="button"] {
+	padding: 8px 15px; 
+	border: none; 
+	border-radius: 3px; 
+	font-size: 13px;
+	cursor: pointer;
+	font-weight: 500;
+	margin-left: 10px; /* ⭐️ 입력 필드와의 간격 확장 */
+	flex-shrink: 0; /* 버튼 너비 고정 */
+	transition: background-color 0.3s ease, color 0.3s ease;
+	background-color: #4a4a4a; /* 어두운 배경색 */
+	color: #fff;
+}
+
+.form-group button:hover, .form-actions input[type="button"]:hover {
+	background-color: #b08d57; /* 포인트 색상 */
+	color: #2c2c2c;
+}
+
+.form-actions input[type="reset"] {
+	padding: 8px 15px; 
+	border: 1px solid #ccc;
+	border-radius: 3px; 
+	font-size: 13px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+	background-color: #f0f0f0;
+	margin-left: 5px;
+}
+.form-actions input[type="reset"]:hover {
+	background-color: #e0e0e0;
+}
+
 
 .form-title {
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+}
+.form-title h1 {
+	font-weight: 700;
+	color: #2c2c2c;
+	font-size: 28px;
+	border-bottom: 2px solid #b08d57; /* 포인트 색상 밑줄 */
+	padding-bottom: 10px;
 }
 
 .form-actions {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 30px;
 }
+
+/* 주소 검색 입력 필드 스타일 조정 */
+.form-group .form-control {
+	padding: 8px 10px;
+	border: 1px solid #e0e0e0;
+	border-radius: 3px;
+}
+
+/* ⭐️ 주소 필드 레이아웃 조정 */
+/* 주소 필드는 라벨과 주소 입력 공간이 별도의 행으로 분리될 수 있도록 flex: 1; 을 제거하고 block 형태로 처리 */
+/* (기본 주소, 상세 주소는 별도의 form-group에 분리되어 있으므로 문제 없음) */
+
+/* ⭐️ 우편번호 row 조정 */
+.zipcode-row {
+	display: flex;
+	align-items: center;
+	flex: 1; /* 남은 공간을 차지하도록 설정 */
+}
+
+/* 우편번호 입력 필드 */
+.zipcode-row input[name="memberZipcode"] {
+	width: 120px; /* ⭐️ 너비 확보 */
+	flex-grow: 0;
+}
+
+/* 주소 검색 버튼 */
+.zipcode-row button {
+	flex-grow: 0;
+	margin-left: 10px;
+}
+
+
 </style>
 </head>
 <body>
@@ -110,14 +200,14 @@
 
 			<div class="form-group">
 				<label for="member_id">User ID</label> 
-				<input type="text" id="member_id" name="member_id" size="20" placeholder="아이디를 입력하세요.(4글자 이상))">
+				<input type="text" id="member_id" name="memberId" size="20" placeholder="아이디를 입력하세요.(4글자 이상))">
 				<button type="button" onclick="fn_idCheck()" id="idCheck" name="idCheck" value="N">중복 확인</button>
 				
 			</div>
 
 			<div class="form-group">
 				<label for="member_pw">비밀번호</label> <input type="password" id="member_pw"
-					name="member_pw" size="20" placeholder="비밀번호를 입력하세요.">
+					name="memberPw" size="20" placeholder="비밀번호를 입력하세요.">
 			</div>
 
 			<div class="form-group">
@@ -127,36 +217,37 @@
 
 			<div class="form-group">
 				<label for="member_name">이름</label> <input type="text"
-					id="member_name" name="member_name" size="20" placeholder="이름을 입력하세요.">
+					id="member_name" name="memberName" size="20" placeholder="이름을 입력하세요.">
 			</div>
 
 			<div class="form-group">
 				<label for="member_email">이메일</label> 
-				<input type="text" id="member_email" name="member_email" size="20" placeholder="이메일을 입력하세요.">
+				<input type="text" id="member_email" name="memberEmail" size="20" placeholder="이메일을 입력하세요.">
 				<button type="button" onclick="fn_emailCheck()" id="emailCheck" value="N">중복 확인</button>
 			</div>
 
 			<div class="form-group">
 				<label for="member_phone">휴대폰</label> <input type="text"
-					id="member_phone" name="member_phone" size="20" placeholder="휴대폰 번호를 입력하세요.">
+					id="member_phone" name="memberPhone" size="20" placeholder="휴대폰 번호를 입력하세요.">
 			</div>
 
 			<div class="form-group">
-				<label for ="address">주소</label> <br> <input class="form-control"
-					style="width: 40%; display: inline;" placeholder="우편번호"
-					name="member_zipcode" id="member_zipcode" type="text" readonly>
-				<button type="button" class="btn btn-default"
-					onclick="daumZipCode()">
-					<i class="fa fa-search"></i> 우편번호 찾기
-				</button>
+				<label for ="memberZipcode">우편번호</label>
+				<div class="zipcode-row">
+					<input class="form-control" name="memberZipcode" id="memberZipcode" type="text" readonly placeholder="우편번호">
+					<button type="button" class="btn btn-default" onclick="daumZipCode()">
+						우편번호 찾기
+					</button>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="memberAddr1">주소</label>
+				<input class="form-control" name="memberAddr1" id="memberAddr1" type="text" readonly placeholder="도로명 주소 (검색 결과)">
 			</div>
 			<div class="form-group">
-				<input class="form-control" style="top: 5px;" placeholder="도로명 주소"
-					name="member_addr1" id="member_addr1" type="text" readonly>
-			</div>
-			<div class="form-group">
-				<input class="form-control" placeholder="상세 주소" name="member_addr2"
-					id="member_addr2" type="text">
+				<label for="memberAddr2">상세 주소</label>
+				<input class="form-control" placeholder="상세 주소" name="memberAddr2" id="memberAddr2" type="text">
 			</div>
 
 			<div class="form-actions">

@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.lgy.product_sales_platform.dto.OrdDTO;
 
+/**
+ * Order 관련 데이터베이스 작업을 위한 MyBatis Mapper 인터페이스입니다.
+ */
 @Mapper
 public interface OrdDAO {
     /**
@@ -14,4 +17,10 @@ public interface OrdDAO {
      * @return 해당 회원의 주문 내역 목록
      */
     List<OrdDTO> getOrdersByMemberId(String memberId);
+
+    /**
+     * 새로운 주문 정보를 저장합니다.
+     * @param ord 저장할 주문 정보 DTO
+     */
+    void save(OrdDTO ord);
 }

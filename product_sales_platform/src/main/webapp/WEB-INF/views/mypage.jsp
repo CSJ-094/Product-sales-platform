@@ -7,9 +7,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+    function daumZipCode() {
+        new daum.Postcode(
+            {
+                oncomplete: function(data) {
+                    var addr = '';
+                    var extraAddr = '';
+
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress;
+                    } else {
+                        addr = data.jibunAddress;
+                    }
+
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                    }
+
+                    document.getElementById('zipcode').value = data.zonecode;
+                    // MEMBER_ADDR_PRIMARY는 기본 주소, MEMBER_ADDR_DETAIL은 상세 주소
+                    document.getElementById("MEMBER_ADDR_PRIMARY").value = addr + extraAddr;
+                    document.getElementById("MEMBER_ADDR_DETAIL").focus();
+                }
+            }
+        ).open();
+    }
+    </script>
     
     <style>
-        /* 기본 스타일 초기화 및 설정 */
+        /* ==================== 0. 기본 스타일 & 초기화 (mainpage.jsp 기준) ==================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,25 +55,31 @@
         }
 
         body {
-            font-family: 'Malgun Gothic', sans-serif;
-            background-color: #f4f5f7;
+            font-family: 'Noto Sans KR', 'Montserrat', sans-serif; [cite_start]/* ⭐️ mainpage.jsp 폰트 적용 [cite: 178] */
+            background-color: #f9f9f9; [cite_start]/* ⭐️ mainpage.jsp 배경색 적용 [cite: 178] */
             color: #333;
+            min-height: 100vh;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #b08d57; [cite_start]/* ⭐️ mainpage.jsp 강조색 적용 [cite: 184] */
         }
 
         ul {
             list-style: none;
         }
 
-        /* 1. 헤더 스타일 */
+        /* ==================== 1. 헤더 스타일 (mainpage.jsp 기준) ==================== */
         .main-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 15px 0 0;
+            background-color: #2c2c2c; [cite_start]/* ⭐️ mainpage.jsp 헤더 배경색 적용 [cite: 181] */
+            border-bottom: none;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header-content {
@@ -46,23 +90,29 @@
             align-items: flex-start;
             padding: 0 20px;
         }
-
-        .logo {
+        
+        .header-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
-            padding-bottom: 5px;
         }
 
         .logo a {
-            font-size: 26px;
-            font-weight: 700;
-            color: #007bff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
         }
 
+        /* 카테고리 스타일 */
         .categories {
             width: 100%;
-            border-top: 1px solid #eee;
-            padding: 10px 0;
-            margin-bottom: 10px;
+            border-top: 1px solid #555;
+            padding: 8px 0;
+            margin-bottom: 0;
         }
 
         .categories ul {
@@ -71,79 +121,87 @@
         }
 
         .categories a {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             padding: 5px 0;
+            color: #ccc;
         }
 
         .categories a:hover {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
+            color: #b08d57;
+            border-bottom: 2px solid #b08d57;
         }
 
-        /* 2. 바디 (마이페이지 메인 영역) 스타일 */
+        /* ==================== 2. 바디 (마이페이지 메인 영역) 스타일 ==================== */
         .mypage-body {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 50px auto;
             display: flex;
-            gap: 20px;
+            gap: 30px;
             padding: 0 20px;
         }
 
         /* 왼쪽 사이드바 스타일 */
         .mypage-sidebar {
             flex-shrink: 0;
-            width: 180px;
+            width: 200px;
             background-color: #ffffff;
-            padding: 20px 0;
+            padding: 10px 0;
             border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
         }
 
         .sidebar-title {
             font-size: 18px;
             font-weight: 700;
-            padding: 10px 20px;
-            margin-bottom: 15px;
-            color: #333;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+            border-bottom: 1px solid #eee;
         }
 
         .mypage-sidebar a {
             display: block;
             padding: 12px 20px;
             font-size: 15px;
+            color: #555;
             transition: background-color 0.2s, color 0.2s;
         }
 
         .mypage-sidebar a:hover {
             background-color: #f0f0f0;
+            color: #333;
         }
 
         /* 현재 선택된 메뉴 강조 */
         .mypage-sidebar a.active {
-            background-color: #007bff;
-            color: white;
-            font-weight: 600;
+            background-color: #f0f0f0;
+            color: #b08d57; /* ⭐️ 강조색 적용 */
+            font-weight: 700;
+            border-left: 4px solid #b08d57; /* ⭐️ 강조색 선 추가 */
+            padding-left: 16px;
         }
 
         /* 오른쪽 콘텐츠 영역 스타일 */
         .mypage-content-area {
             flex-grow: 1;
             background-color: #ffffff;
-            padding: 30px;
+            padding: 40px;
             border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
         }
 
         .mypage-content-area h2 {
-            font-size: 24px;
-            border-bottom: 3px solid #007bff;
+            font-size: 26px;
+            border-bottom: 3px solid #b08d57; /* ⭐️ 강조색 적용 */
             padding-bottom: 10px;
             margin-bottom: 30px;
-            color: #333;
+            color: #2c2c2c;
         }
 
-        /* **숨김 처리** (다른 콘텐츠를 숨기기 위해 사용) */
+        /* **숨김 처리** */
         .content-panel {
             display: none;
         }
@@ -154,27 +212,31 @@
         }
 
 
-        /* --- 회원 정보 폼 전용 스타일 --- */
+        /* --- 회원 정보 폼 전용 스타일 (수정됨) --- */
         .info-form {
-            max-width: 600px;
+            max-width: 700px;
             margin-top: 20px;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: #fcfcfc;
         }
 
         .form-group {
             margin-bottom: 20px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eeeeee;
+        }
+        
+        .form-row { /* ⭐️ 입력 필드와 라벨을 수평으로 정렬 */
+            display: flex;
+            align-items: center;
         }
 
         .form-group label {
-            display: block;
+            flex-shrink: 0;
+            width: 120px; /* ⭐️ 라벨 너비 고정 */
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #555;
+            color: #333;
+            margin-bottom: 0;
         }
 
         /* 기본 입력 필드 스타일 */
@@ -182,30 +244,45 @@
         .form-group input[type="email"],
         .form-group input[type="tel"],
         .form-group input[type="password"] {
-            width: 100%;
+            flex-grow: 1;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 15px;
             transition: border-color 0.3s;
-            margin-top: 5px;
+            margin-top: 0;
         }
+        
+        .form-group input:focus {
+             border-color: #b08d57;
+        }
+
 
         /* 수정 불가능한 아이디 필드 스타일 */
         #MEMBER_ID_VIEW {
-            background-color: #eee;
+            background-color: #f0f0f0;
             color: #777;
         }
 
-        /* --- 주소 그룹 전용 스타일 (추가됨) --- */
-        .address-group input {
+        /* --- 주소 그룹 전용 스타일 --- */
+        .address-group {
+            margin-top: 20px;
+        }
+        .address-group .form-group {
             margin-bottom: 10px;
         }
-
         .address-zip-row {
             display: flex;
+            align-items: center;
             gap: 10px;
-            margin-bottom: 10px;
+            flex-grow: 1; /* 나머지 공간을 모두 차지 */
+        }
+        
+        /* 우편번호 입력 필드 */
+        .address-zip-row #zipcode {
+            width: 100px; /* 우편번호 필드 너비 조정 */
+            flex-grow: 0;
+            background-color: #f0f0f0;
         }
 
         .address-search-btn {
@@ -218,25 +295,31 @@
             font-weight: 500;
             flex-shrink: 0;
             transition: background-color 0.3s;
+            font-size: 15px;
         }
 
         .address-search-btn:hover {
             background-color: #5a6268;
         }
 
-        #zipcode, #MEMBER_ADDR_PRIMARY {
-            background-color: #eee;
+        /* 기본 주소 필드 (읽기 전용) */
+        #MEMBER_ADDR_PRIMARY {
+            background-color: #f0f0f0;
             color: #777;
         }
-
+        /* 상세주소 (입력 가능) */
+        #MEMBER_ADDR_DETAIL {
+            background-color: #ffffff;
+            color: #333;
+        }
 
         .button-group {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .submit-btn, .reset-btn {
-            padding: 10px 20px;
+            padding: 10px 25px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -247,17 +330,19 @@
         }
 
         .submit-btn {
-            background-color: #007bff;
+            background-color: #2c2c2c; /* ⭐️ 강조색 적용 */
             color: white;
         }
 
         .submit-btn:hover {
-            background-color: #0056b3;
+            background-color: #b08d57;
+            color: #2c2c2c;
         }
 
         .reset-btn {
             background-color: #ccc;
             color: #333;
+            border: 1px solid #bbb;
         }
 
         .reset-btn:hover {
@@ -274,9 +359,9 @@
             text-align: center;
         }
         .message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: #e6f7e9;
+            color: #1a7c36;
+            border: 1px solid #a9d4b6;
         }
         table {
             width: 100%;
@@ -292,7 +377,7 @@
             border-bottom: 1px solid #eee;
         }
         th {
-            background-color: #6c757d; /* 회색 */
+            background-color: #4a4a4a; /* ⭐️ 어두운 배경색 적용 */
             color: white;
             font-weight: 600;
             text-transform: uppercase;
@@ -323,13 +408,14 @@
             border-radius: 5px;
             font-size: 0.9em;
             transition: background-color 0.3s ease;
-            margin-right: 5px; /* 버튼 간 간격 */
+            margin-right: 5px; 
         }
         .action-btn:hover {
-            background-color: #5a6268;
+            background-color: #b08d57; /* ⭐️ 강조색 적용 */
+            color: #2c2c2c;
         }
         .remove-btn {
-            background-color: #dc3545; /* 삭제 버튼은 빨간색 유지 */
+            background-color: #dc3545;
         }
         .remove-btn:hover {
             background-color: #c82333;
@@ -341,15 +427,18 @@
 
     <header class="main-header">
         <div class="header-content">
-            <div class="logo">
-                <a href='<c:url value="/mainpage"/>' title="메인 페이지로 이동">상점 로고</a>
+            <div class="header-top">
+                <div class="logo">
+                    <a href='<c:url value="/mainpage"/>' title="메인 페이지로 이동">MY MODERN SHOP</a>
+                </div>
             </div>
 
             <nav class="categories">
                 <ul>
-                    <li><a href="/category/men">남성</a></li>
-                    <li><a href="/category/women">여성</a></li>
-                    <li><a href="/category/sportswear">스포츠웨어</a></li>
+                    <li><a href="/category/mans">MANS</a></li>
+                    <li><a href="/category/women">WOMEN</a></li>
+                    <li><a href="/category/kids">KIDS</a></li>
+                    <li><a href="/category/shoes">SHOES</a></li>
                 </ul>
             </nav>
         </div>
@@ -360,59 +449,83 @@
         <aside class="mypage-sidebar">
             <nav>
                 <ul>
-                    <li class="sidebar-title">마이페이지</li>
-                    <li><a href="#member-info" class="active">회원 정보</a></li>
-                    <li><a href="#wishlist">찜목록</a></li>
+                    <li class="sidebar-title">MY PAGE</li>
+                    <li><a href="#member-info" class="active">회원 정보 수정</a></li>
+                    <li><a href="#wishlist">찜목록 (Wishlist)</a></li>
                     <li><a href="#order-history">주문 내역</a></li>
                 </ul>
             </nav>
         </aside>
 
         <section class="mypage-content-area">
-            
-            <h2 id="content-title">회원 정보</h2>
+      
+            <h2 id="content-title">회원 정보 수정</h2>
             
             <div id="member-info-content" class="content-panel active">
                 <div class="member-info-panel">
                     <form action="user_info" method="post" class="info-form">
                         
                         <div class="form-group">
-                            <label for="MEMBER_ID_VIEW">아이디</label>
-                            <input type="text" id="MEMBER_ID_VIEW" value="${memberInfo.memberId}" disabled>
+                            <div class="form-row">
+                                <label for="MEMBER_ID_VIEW">아이디</label>
+                                <input type="text" id="MEMBER_ID_VIEW" value="${memberInfo.memberId}" disabled>
+                            </div>
                             <input type="hidden" name="MEMBER_ID" value="${memberInfo.memberId}">
                         </div>
 
                         <div class="form-group">
-                            <label for="MEMBER_PW">새 비밀번호</label>
-                            <input type="password" id="MEMBER_PW" name="MEMBER_PW" placeholder="새 비밀번호를 입력해주세요" required>
+                            <div class="form-row">
+                                <label for="MEMBER_PW">새 비밀번호</label>
+                                <input type="password" id="MEMBER_PW" name="MEMBER_PW" placeholder="새 비밀번호를 입력해주세요 (변경 시에만 입력)" > 
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="MEMBER_NAME">이름</label>
-                            <input type="text" id="MEMBER_NAME" name="MEMBER_NAME" value="${memberInfo.memberName}" required>
+                            <div class="form-row">
+                                <label for="MEMBER_NAME">이름</label>
+                                <input type="text" id="MEMBER_NAME" name="MEMBER_NAME" value="${memberInfo.memberName}" required>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="MEMBER_EMAIL">이메일</label>
-                            <input type="email" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${memberInfo.memberEmail}" required>
+                            <div class="form-row">
+                                <label for="MEMBER_EMAIL">이메일</label>
+                                <input type="email" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${memberInfo.memberEmail}" required>
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="MEMBER_PHONE">전화번호</label>
-                            <input type="tel" id="MEMBER_PHONE" name="MEMBER_PHONE" value="${memberInfo.memberPhone}" placeholder="예: 010-1234-5678">
+                            <div class="form-row">
+                                <label for="MEMBER_PHONE">전화번호</label>
+                                <input type="tel" id="MEMBER_PHONE" name="MEMBER_PHONE" value="${memberInfo.memberPhone}" placeholder="예: 010-1234-5678">
+                            </div>
                         </div>
 
-                        <div class="form-group address-group">
-                            <label>주소</label>
-                            
-                            <div class="address-zip-row">
-                                <input type="text" id="zipcode" value="00000" placeholder="우편번호" style="width: 150px;" disabled>
-                                <button type="button" class="address-search-btn">주소 검색</button>
+                        <div class="address-group">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="zipcode">우편번호</label>
+                                    <div class="address-zip-row">
+                                        <input type="text" id="zipcode" name="memberZipcode" value="${memberInfo.memberZipcode}" placeholder="우편번호" readonly>
+                                        <button type="button" class="address-search-btn" onclick="daumZipCode()">주소 검색</button>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <input type="text" id="MEMBER_ADDR" name="MEMBER_ADDR" value="${memberInfo.memberAddr}" placeholder="주소 (직접 입력 또는 주소 검색 결과)">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="MEMBER_ADDR_PRIMARY">기본 주소</label>
+                                    <input type="text" id="MEMBER_ADDR_PRIMARY" name="memberAddr1" value="${memberInfo.memberAddr1}" placeholder="도로명 주소 (검색 결과)" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="MEMBER_ADDR_DETAIL">상세 주소</label>
+                                    <input type="text" placeholder="상세 주소" name="memberAddr2" id="MEMBER_ADDR_DETAIL" value="${memberInfo.memberAddr2}">
+                                </div>
+                            </div>
                         </div>
-                        
                         <div class="button-group">
                             <button type="submit" class="submit-btn">정보 수정</button>
                             <button type="reset" class="reset-btn">취소</button>
@@ -462,7 +575,8 @@
                                         <form action="/cart/moveFromWishlist" method="post" style="display:inline;">
                                             <input type="hidden" name="memberId" value="${param.memberId}">
                                             <input type="hidden" name="prodId" value="${product.prodId}">
-                                            <input type="hidden" name="cartQty" value="1"> <button type="submit" class="action-btn">장바구니로 이동</button>
+                                            <input type="hidden" name="cartQty" value="1"> 
+                                            <button type="submit" class="action-btn">장바구니로 이동</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -475,42 +589,40 @@
             <div id="order-history-content" class="content-panel">
 
                 <c:if test="${empty orderList}">
-        <p class="no-items">주문 내역이 없습니다.</p>
-    </c:if>
+                    <p class="no-items">주문 내역이 없습니다.</p>
+                </c:if>
 
-    <c:if test="${not empty orderList}">
-        <table>
-            <thead>
-                <tr>
-                    <th>주문번호</th>
-                    <th>주문일자</th>
-                    <th>총 구매금액</th>
-                    <th>할인 금액</th>
-                    <th>배송비</th>
-                    <th>주문 상태</th>
-                    <th style="width: 100px;">상세 보기</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="order" items="${orderList}">
-                    <tr>
-                        <td>${order.ordId}</td>
-                        <%-- 날짜 포맷팅 --%>
-                        <td><fmt:formatDate value="${order.ordDate}" pattern="yyyy-MM-dd"/></td>
-                        <%-- 금액 포맷팅 (￦) --%>
-                        <td><fmt:formatNumber value="${order.ordAmount}" type="currency" currencySymbol="₩"/></td>
-                        <td><fmt:formatNumber value="${order.ordDiscount}" type="currency" currencySymbol="₩"/></td>
-                        <td><fmt:formatNumber value="${order.ordDfee}" type="currency" currencySymbol="₩"/></td>
-                        <td>${order.ordStatus}</td>
-                        <td>
-                            <a href="/order/detail?ordId=${order.ordId}" class="action-btn">상세</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </c:if>
-</div>
+                <c:if test="${not empty orderList}">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>주문번호</th>
+                                <th>주문일자</th>
+                                <th>총 구매금액</th>
+                                <th>할인 금액</th>
+                                <th>배송비</th>
+                                <th>주문 상태</th>
+                                <th style="width: 100px;">상세 보기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="order" items="${orderList}">
+                                <tr>
+                                    <td>${order.ordId}</td>
+                                    <td><fmt:formatDate value="${order.ordDate}" pattern="yyyy-MM-dd"/></td>
+                                    <td><fmt:formatNumber value="${order.ordAmount}" type="currency" currencySymbol="₩"/></td>
+                                    <td><fmt:formatNumber value="${order.ordDiscount}" type="currency" currencySymbol="₩"/></td>
+                                    <td><fmt:formatNumber value="${order.ordDfee}" type="currency" currencySymbol="₩"/></td>
+                                    <td>${order.ordStatus}</td>
+                                    <td>
+                                        <a href="/order/detail?ordId=${order.ordId}" class="action-btn">상세</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </c:if>
+            </div>
             
         </section>
     </main>
@@ -527,7 +639,6 @@
 
             function activatePanel(targetId) {
                 const panelId = targetId + '-content';
-
                 // 1. 사이드바 링크 활성화
                 sidebarLinks.forEach(link => {
                     const linkHash = link.getAttribute('href').substring(1);
@@ -539,7 +650,6 @@
                         link.classList.remove('active');
                     }
                 });
-
                 // 3. 콘텐츠 패널 표시/숨김
                 contentPanels.forEach(panel => {
                     if (panel.id === panelId) {
@@ -552,7 +662,6 @@
 
             // 초기 로드 시 실행 (URL 해시에 따라 페이지 표시)
             activatePanel(getHashId());
-
             // 사이드바 링크 클릭 이벤트
             sidebarLinks.forEach(link => {
                 link.addEventListener('click', function(event) {

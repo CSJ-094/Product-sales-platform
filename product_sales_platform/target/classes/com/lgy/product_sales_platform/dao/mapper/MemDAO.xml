@@ -11,7 +11,9 @@
         MEMBER_NAME  AS memberName,
         MEMBER_EMAIL AS memberEmail,
         MEMBER_PHONE AS memberPhone,
-        MEMBER_ADDR  AS memberAddr
+        MEMBER_ZIPCODE  AS memberZipcode,
+        MEMBER_ADDR1  AS memberAddr1,
+        MEMBER_ADDR2  AS memberAddr2
     FROM USER_DB 
     WHERE MEMBER_ID = #{memberId}
 </select>
@@ -22,7 +24,9 @@
         MEMBER_PW    = #{memberPw, jdbcType=VARCHAR},     MEMBER_NAME  = #{memberName, jdbcType=VARCHAR},
         MEMBER_EMAIL = #{memberEmail, jdbcType=VARCHAR},
         MEMBER_PHONE = #{memberPhone, jdbcType=VARCHAR},
-        MEMBER_ADDR  = #{memberAddr, jdbcType=VARCHAR} 
+        MEMBER_ZIPCODE  = #{memberZipcode, jdbcType=VARCHAR},
+        MEMBER_ADDR1 = #{memberAddr1, jdbcType=VARCHAR},
+        MEMBER_ADDR2 = #{memberAddr2, jdbcType=VARCHAR}
     WHERE 
         MEMBER_ID = #{memberId, jdbcType=VARCHAR}       </update>
         
@@ -33,7 +37,9 @@
             MEMBER_NAME as memberName,
             MEMBER_EMAIL as memberEmail,
             MEMBER_PHONE as memberPhone,
-            MEMBER_ADDR as memberAddr
+            MEMBER_ZIPCODE  AS memberZipcode,
+        	MEMBER_ADDR1  AS memberAddr1,
+        	MEMBER_ADDR2  AS memberAddr2
         FROM USER_DB
         WHERE MEMBER_ID = #{memberId}
 </select>

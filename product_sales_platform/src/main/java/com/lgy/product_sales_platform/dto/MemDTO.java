@@ -13,5 +13,7 @@ public class MemDTO {
 	private String memberName;
 	private String memberEmail;
 	private String memberPhone;
-	private String memberAddr;
+	private String memberZipcode;
+	private String memberAddr1;
+	private String memberAddr2;
 }

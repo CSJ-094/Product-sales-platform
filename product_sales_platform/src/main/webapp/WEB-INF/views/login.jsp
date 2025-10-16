@@ -301,7 +301,7 @@
             <h2>로그인</h2>
             <p>계속하려면 로그인하세요.</p>
             
-            <form action="#" method="post">
+            <form action="login_yn" method="post">
                 <div class="user-type-switch">
                     <input type="radio" id="customer" name="userType" value="customer" checked>
                     <label for="customer">구매자</label>
@@ -311,11 +311,11 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="text" id="username" name="username" class="input-field" placeholder="아이디" required>
+                    <input type="text" id="memberId" name="memberId" class="input-field" placeholder="아이디" required>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" name="password" class="input-field" placeholder="비밀번호" required>
+                    <input type="password" id="memberPw" name="memberPw" class="input-field" placeholder="비밀번호" required>
                     <i class="fas fa-lock"></i>
                 </div>
                 
@@ -323,11 +323,11 @@
                     <label class="remember-me">
                         <input type="checkbox" name="remember"> 자동 로그인
                     </label>
-                    <a href="#" class="find-link">아이디/비밀번호 찾기</a>
+                    <a href='#' onclick="location.href='find'">아이디/비밀번호 찾기</a>
                 </div>
                 
                 <button type="submit" class="btn btn-login">로그인</button>
-                <button type="button" class="btn btn-signup" onclick="location.href='#'">회원가입</button>
+                <button type="button" class="btn btn-signup" onclick="location.href='register'">회원가입</button>
             </form>
         </div>
     </div>
