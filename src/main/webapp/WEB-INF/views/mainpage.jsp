@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인 페이지 - MY MODERN SHOP</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-	<style>
-		/* 1. JSTL을 사용하여 이미지의 정확한 웹 경로를 변수에 저장 */
-		<c:url value="/img/main_banner.jpg" var="mainBannerUrl"/>
 
+	<c:url value="/img/main_banner.jpg" var="mainBannerUrl"/>
+
+	<style>
 		/* 기본 스타일 및 초기화 (생략) */
 	* { box-sizing: border-box; margin: 0; padding: 0; }
 	body { 
@@ -83,15 +83,8 @@
 	.auth-btn:hover { 
 		background-color: #b08d57; 
 		border-color: #b08d57; 
-		color: #2c2c2c; 
+		color: #2c2c2c !important; 
 	}
-	.auth-btn:visited, .auth-btn:focus, .auth-btn:active {
-		color: #ccc !important;
-	}
-	
-	/* 🚩 추가된 스타일: 장바구니 버튼 (기존 auth-btn 스타일 재사용) */
-	/* .cart-btn {} */
-
 
 	.category-nav { 
 		width: 100%; 
@@ -302,8 +295,11 @@
 				<c:when test="${not empty sessionScope.memberId}">
 					<span class="auth-welcome">환영합니다, ${sessionScope.memberName}님!</span>
 					<a href='<c:url value="/mypage"/>' class="auth-btn">마이페이지</a> 
+					<c:if test="${sessionScope.memberId eq 'admin'}">
+						<a href='<c:url value="/product/admin/register"/>' class="auth-btn">상품 등록</a>
+					</c:if>
 					<c:if test="${sessionScope.memberId ne 'admin'}">
-						<a href='<c:url value="/cart"/>' class="auth-btn cart-btn">장바구니</a>
+						<a href='<c:url value="/mypage#cart"/>' class="auth-btn cart-btn">장바구니</a>
 					</c:if>
 					<a href='<c:url value="/logout"/>' class="auth-btn">로그아웃</a>
 				</c:when>

@@ -2,9 +2,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-    <mapper namespace="com.lgy.product_sales_platform.dao.ProdDAO">
+<mapper namespace="com.lgy.product_sales_platform.dao.ProdDAO">
 
- <select id="getProductById" resultType="com.lgy.product_sales_platform.dto.ProdDTO">
+    <select id="getProductById" resultType="com.lgy.product_sales_platform.dto.ProdDTO">
         SELECT
             PROD_ID as prodId,
             PROD_SELLER as prodSeller,
@@ -14,9 +14,50 @@
             PROD_DESC as prodDesc,
             PROD_CODE as prodCode,
             PROD_REG as prodReg,
-            PROD_UPD as prodUpd
+            PROD_UPD as prodUpd,
+            PROD_IMAGE as prodImage
         FROM PRODUCT_DB
         WHERE PROD_ID = #{prodId}
     </select>
+
+    <select id="getAllProducts" resultType="com.lgy.product_sales_platform.dto.ProdDTO">
+        SELECT
+            PROD_ID as prodId,
+            PROD_SELLER as prodSeller,
+            PROD_NAME as prodName,
+            PROD_PRICE as prodPrice,
+            PROD_STOCK as prodStock,
+            PROD_DESC as prodDesc,
+            PROD_CODE as prodCode,
+            PROD_REG as prodReg,
+            PROD_UPD as prodUpd,
+            PROD_IMAGE as prodImage
+        FROM PRODUCT_DB
+        ORDER BY PROD_ID DESC
+    </select>
+
+    <insert id="registerProduct" parameterType="com.lgy.product_sales_platform.dto.ProdDTO">
+        INSERT INTO PRODUCT_DB (
+            PROD_ID,
+            PROD_SELLER,
+            PROD_NAME,
+            PROD_PRICE,
+            PROD_STOCK,
+            PROD_DESC,
+            PROD_CODE,
+            PROD_IMAGE,
+            PROD_REG
+        ) VALUES (
+            PRODUCT_SEQ.NEXTVAL,
+            #{prodSeller},
+            #{prodName},
+            #{prodPrice},
+            #{prodStock},
+            #{prodDesc},
+            #{prodCode},
+            #{prodImage},
+            SYSDATE
+        )
+    </insert>
   
 </mapper>

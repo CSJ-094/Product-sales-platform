@@ -39,17 +39,20 @@
             gap: 30px;
             align-items: flex-start;
         }
-        .product-image {
+        .product-image-gallery {
             flex: 1;
             max-width: 300px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .product-image img {
+        .product-image-gallery img {
             width: 100%;
             height: auto;
             display: block;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
         }
         .product-details {
             flex: 2;
@@ -99,7 +102,7 @@
             text-align: center;
         }
         .add-to-cart-form button {
-            background-color: #6c757d; /* 회색 */
+            background-color: #6c757d;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -135,8 +138,10 @@
         </c:if>
         <c:if test="${not empty product}">
             <div class="product-info">
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/300x300?text=Product+Image" alt="${product.prodName}">
+                <div class="product-image-gallery">
+                    <c:forTokens items="${product.prodImage}" delims="," var="imagePath">
+                        <img src="<c:url value='${imagePath}'/>" alt="${product.prodName}">
+                    </c:forTokens>
                 </div>
                 <div class="product-details">
                     <h2>${product.prodName}</h2>
@@ -145,8 +150,7 @@
                     <p><strong>재고:</strong> ${product.prodStock}개</p>
                     <p class="description">${product.prodDesc}</p>
 
-                    <form action="/cart/add" method="post" class="add-to-cart-form">
-                        <input type="hidden" name="memberId" value="${memberId}">
+                    <form action="<c:url value='/mypage/cart/add'/>" method="post" class="add-to-cart-form">
                         <input type="hidden" name="prodId" value="${product.prodId}">
                         <label for="cartQty">수량:</label>
                         <input type="number" id="cartQty" name="cartQty" value="1" min="1" max="${product.prodStock}">

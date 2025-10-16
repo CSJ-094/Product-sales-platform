@@ -84,10 +84,10 @@ public class CartService {
         // 1. 장바구니에 상품 추가 (기존 addCart 로직 재사용 가능)
         addCart(memberId, prodId, cartQty);
 
-        // 2. 찜목록에서 해당 상품 삭제 (WishlistDAO에 deleteWishlistItem 메소드가 있다고 가정)
-        // WishlistDTO는 WishlistDAO를 통해 얻거나, 삭제에 필요한 정보만 설정하여 사용해야 함.
-        // 여기서는 prodId와 memberId로 삭제하는 메소드를 호출한다고 가정합니다.
-        // wishlistDAO.deleteWishlistItem(memberId, prodId);
-        // WishlistDAO에 해당 메소드가 없으면, 해당 DAO 파일에 추가해야 합니다.
+        // 2. 찜목록에서 해당 상품 삭제
+        WishlistDTO wishlistDTO = new WishlistDTO();
+        wishlistDTO.setMemberId(memberId);
+        wishlistDTO.setProdId(prodId);
+        wishlistDAO.removeWishlist(wishlistDTO);
     }
 }

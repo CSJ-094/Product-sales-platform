@@ -37,7 +37,6 @@
                     }
 
                     document.getElementById('zipcode').value = data.zonecode;
-                    // MEMBER_ADDR_PRIMARY는 기본 주소, MEMBER_ADDR_DETAIL은 상세 주소
                     document.getElementById("MEMBER_ADDR_PRIMARY").value = addr + extraAddr;
                     document.getElementById("MEMBER_ADDR_DETAIL").focus();
                 }
@@ -47,7 +46,7 @@
     </script>
     
     <style>
-        /* ==================== 0. 기본 스타일 & 초기화 (mainpage.jsp 기준) ==================== */
+        /* ... existing styles ... */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -55,8 +54,8 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', 'Montserrat', sans-serif; /* ⭐️ mainpage.jsp 폰트 적용 */
-            background-color: #f9f9f9; /* ⭐️ mainpage.jsp 배경색 적용 */
+            font-family: 'Noto Sans KR', 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
             color: #333;
             min-height: 100vh;
         }
@@ -67,16 +66,15 @@
             transition: color 0.3s ease;
         }
         a:hover {
-            color: #b08d57; /* ⭐️ mainpage.jsp 강조색 적용 */
+            color: #b08d57;
         }
 
         ul {
             list-style: none;
         }
 
-        /* ==================== 1. 헤더 스타일 (mainpage.jsp 기준) ==================== */
         .main-header {
-            background-color: #2c2c2c; /* ⭐️ mainpage.jsp 헤더 배경색 적용 */
+            background-color: #2c2c2c;
             border-bottom: none;
             padding: 15px 0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -107,7 +105,6 @@
             letter-spacing: 1px;
         }
 
-        /* 카테고리 스타일 */
         .categories {
             width: 100%;
             border-top: 1px solid #555;
@@ -132,7 +129,6 @@
             border-bottom: 2px solid #b08d57;
         }
 
-        /* ==================== 2. 바디 (마이페이지 메인 영역) 스타일 ==================== */
         .mypage-body {
             max-width: 1200px;
             margin: 50px auto;
@@ -141,7 +137,6 @@
             padding: 0 20px;
         }
 
-        /* 왼쪽 사이드바 스타일 */
         .mypage-sidebar {
             flex-shrink: 0;
             width: 200px;
@@ -174,16 +169,14 @@
             color: #333;
         }
 
-        /* 현재 선택된 메뉴 강조 */
         .mypage-sidebar a.active {
             background-color: #f0f0f0;
-            color: #b08d57; /* ⭐️ 강조색 적용 */
+            color: #b08d57;
             font-weight: 700;
-            border-left: 4px solid #b08d57; /* ⭐️ 강조색 선 추가 */
+            border-left: 4px solid #b08d57;
             padding-left: 16px;
         }
 
-        /* 오른쪽 콘텐츠 영역 스타일 */
         .mypage-content-area {
             flex-grow: 1;
             background-color: #ffffff;
@@ -193,26 +186,27 @@
             border: 1px solid #e0e0e0;
         }
 
-        .mypage-content-area h2 {
+        .mypage-content-area h2, .mypage-content-area h3 {
             font-size: 26px;
-            border-bottom: 3px solid #b08d57; /* ⭐️ 강조색 적용 */
+            border-bottom: 3px solid #b08d57;
             padding-bottom: 10px;
             margin-bottom: 30px;
             color: #2c2c2c;
         }
+        .mypage-content-area h3 {
+            font-size: 20px;
+            border-bottom-width: 2px;
+            margin-top: 40px;
+        }
 
-        /* **숨김 처리** */
         .content-panel {
             display: none;
         }
 
-        /* **활성화된 콘텐츠** */
         .content-panel.active {
             display: block;
         }
 
-
-        /* --- 회원 정보 폼 전용 스타일 (수정됨) --- */
         .info-form {
             max-width: 700px;
             margin-top: 20px;
@@ -226,24 +220,25 @@
             margin-bottom: 20px;
         }
         
-        .form-row { /* ⭐️ 입력 필드와 라벨을 수평으로 정렬 */
+        .form-row {
             display: flex;
             align-items: center;
         }
 
         .form-group label {
             flex-shrink: 0;
-            width: 120px; /* ⭐️ 라벨 너비 고정 */
+            width: 120px;
             font-weight: 600;
             color: #333;
             margin-bottom: 0;
         }
 
-        /* 기본 입력 필드 스타일 */
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group input[type="tel"],
-        .form-group input[type="password"] {
+        .form-group input[type="password"],
+        .form-group input[type="number"],
+        .form-group textarea {
             flex-grow: 1;
             padding: 10px;
             border: 1px solid #ccc;
@@ -251,20 +246,20 @@
             font-size: 15px;
             transition: border-color 0.3s;
             margin-top: 0;
+            font-family: inherit;
         }
         
-        .form-group input:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
              border-color: #b08d57;
+             outline: none;
         }
 
-
-        /* 수정 불가능한 아이디 필드 스타일 */
         #MEMBER_ID_VIEW {
             background-color: #f0f0f0;
             color: #777;
         }
 
-        /* --- 주소 그룹 전용 스타일 --- */
         .address-group {
             margin-top: 20px;
         }
@@ -275,12 +270,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-grow: 1; /* 나머지 공간을 모두 차지 */
+            flex-grow: 1;
         }
         
-        /* 우편번호 입력 필드 */
         .address-zip-row #zipcode {
-            width: 100px; /* 우편번호 필드 너비 조정 */
+            width: 100px;
             flex-grow: 0;
             background-color: #f0f0f0;
         }
@@ -302,12 +296,10 @@
             background-color: #5a6268;
         }
 
-        /* 기본 주소 필드 (읽기 전용) */
         #MEMBER_ADDR_PRIMARY {
             background-color: #f0f0f0;
             color: #777;
         }
-        /* 상세주소 (입력 가능) */
         #MEMBER_ADDR_DETAIL {
             background-color: #ffffff;
             color: #333;
@@ -330,7 +322,7 @@
         }
 
         .submit-btn {
-            background-color: #2c2c2c; /* ⭐️ 강조색 적용 */
+            background-color: #2c2c2c;
             color: white;
         }
 
@@ -349,8 +341,6 @@
             background-color: #bbb;
         }
         
-        
-        /* ⭐️ Wishlist Table & Button Styles ⭐️ */
         .message {
             padding: 10px 15px;
             margin-bottom: 20px;
@@ -362,6 +352,11 @@
             background-color: #e6f7e9;
             color: #1a7c36;
             border: 1px solid #a9d4b6;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
         }
         table {
             width: 100%;
@@ -377,7 +372,7 @@
             border-bottom: 1px solid #eee;
         }
         th {
-            background-color: #4a4a4a; /* ⭐️ 어두운 배경색 적용 */
+            background-color: #4a4a4a;
             color: white;
             font-weight: 600;
             text-transform: uppercase;
@@ -411,7 +406,7 @@
             margin-right: 5px; 
         }
         .action-btn:hover {
-            background-color: #b08d57; /* ⭐️ 강조색 적용 */
+            background-color: #b08d57;
             color: #2c2c2c;
         }
         .remove-btn {
@@ -420,27 +415,12 @@
         .remove-btn:hover {
             background-color: #c82333;
         }
-        /* ⭐️ End of Wishlist Styles ⭐️ */
 
-        /* 주문 내역 테이블의 마지막 셀 (상세 버튼 포함)에 적용 */
         #order-history-content table td:last-child {
-            white-space: nowrap; /* 셀 내용이 줄 바꿈되지 않도록 설정 */
+            white-space: nowrap;
         }
 
-        /* ==================== Cart Specific Styles (from cartList.jsp) ==================== */
-        /* Overriding the general message style for cart specific success messages */
-        .message { 
-            padding: 15px;
-            margin-bottom: 25px;
-            border-radius: 4px;
-            font-size: 1.1em;
-            text-align: center;
-            border: 1px solid #c3e6cb;
-            background-color: #e6f7e9;
-            color: #1a7c36;
-        }
-        
-        #cart-content .no-items { /* Make it specific to cart-content */
+        #cart-content .no-items {
             text-align: center;
             padding: 30px;
             margin-top: 20px;
@@ -451,41 +431,27 @@
             background-color: #fcfcfc;
         }
 
-        /* 장바구니 테이블 스타일 */
-        #cart-content table { /* Make it specific to cart-content */
+        #cart-content table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 25px;
             font-size: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Added from wishlist table style */
-            border-radius: 8px; /* Added from wishlist table style */
-            overflow: hidden; /* Added from wishlist table style */
         }
         
-        #cart-content th, #cart-content td { /* Make it specific to cart-content */
+        #cart-content th, #cart-content td {
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid #eee;
         }
         
-        #cart-content th { /* Make it specific to cart-content */
+        #cart-content th {
             background-color: #4a4a4a;
             color: white;
             font-weight: 600;
-            text-transform: uppercase;
             font-size: 0.95em;
         }
         
-        #cart-content tr:nth-child(even) { /* Make it specific to cart-content */
-            background-color: #f9f9f9;
-        }
-        
-        #cart-content tr:hover { /* Make it specific to cart-content */
-            background-color: #f1f1f1;
-        }
-
-        /* 수량 입력 필드 */
-        #cart-content .quantity-input { /* Make it specific to cart-content */
+        #cart-content .quantity-input {
             width: 60px;
             padding: 8px;
             border: 1px solid #ccc;
@@ -495,8 +461,7 @@
             font-size: 14px;
         }
         
-        /* 버튼 공통 스타일 */
-        #cart-content .cart-action-btn { /* Make it specific to cart-content */
+        #cart-content .cart-action-btn {
             padding: 8px 15px;
             border: none;
             border-radius: 4px;
@@ -506,26 +471,23 @@
             transition: background-color 0.3s;
         }
 
-        /* 수량 수정 버튼 */
-        #cart-content .update-btn { /* Make it specific to cart-content */
+        #cart-content .update-btn {
             background-color: #6c757d;
             color: white;
         }
-        #cart-content .update-btn:hover { /* Make it specific to cart-content */
+        #cart-content .update-btn:hover {
             background-color: #5a6268;
         }
 
-        /* 삭제 버튼 */
-        #cart-content .remove-btn { /* Make it specific to cart-content */
+        #cart-content .remove-btn {
             background-color: #dc3545;
             color: white;
         }
-        #cart-content .remove-btn:hover { /* Make it specific to cart-content */
+        #cart-content .remove-btn:hover {
             background-color: #c82333;
         }
 
-        /* 총 가격 표시 */
-        #cart-content .total-price { /* Make it specific to cart-content */
+        #cart-content .total-price {
             text-align: right;
             margin-top: 30px;
             padding: 15px 20px;
@@ -535,8 +497,7 @@
             border-top: 2px solid #b08d57;
         }
 
-        /* 하단 액션 버튼 그룹 */
-        #cart-content .action-buttons { /* Make it specific to cart-content */
+        #cart-content .action-buttons {
             text-align: center;
             margin-top: 40px;
             display: flex;
@@ -544,8 +505,7 @@
             gap: 20px;
         }
 
-        /* 쇼핑 계속하기 버튼 */
-        #cart-content .action-buttons a { /* Make it specific to cart-content */
+        #cart-content .action-buttons a {
             padding: 12px 30px;
             font-size: 16px;
             font-weight: 600;
@@ -554,24 +514,40 @@
             transition: background-color 0.3s;
         }
         
-        /* 주문하기 버튼 (강조) */
-        #cart-content .order-btn { /* Make it specific to cart-content */
+        #cart-content .order-btn {
             background-color: #b08d57 !important;
             color: #2c2c2c !important;
             border: 1px solid #b08d57 !important;
         }
         
-        #cart-content .order-btn:hover { /* Make it specific to cart-content */
+        #cart-content .order-btn:hover {
             background-color: #a07d47 !important;
         }
         
-        #cart-content .action-buttons a:not(.order-btn) { /* Make it specific to cart-content */
+        #cart-content .action-buttons a:not(.order-btn) {
             background-color: #f5f5f5;
             color: #444;
         }
-        #cart-content .action-buttons a:not(.order-btn):hover { /* Make it specific to cart-content */
+        #cart-content .action-buttons a:not(.order-btn):hover {
             background-color: #e0e0e0;
         }
+
+        /* Product Management Styles */
+        #product-management-content .product-list-table img {
+            max-width: 60px;
+            max-height: 60px;
+            border-radius: 4px;
+        }
+        #product-management-content .product-list-table td,
+        #product-management-content .product-list-table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+        #product-management-content .product-list-table th:nth-child(2),
+        #product-management-content .product-list-table td:nth-child(2) {
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
@@ -622,29 +598,63 @@
       
             <h2 id="content-title">회원 정보 수정</h2>
             
+            <c:if test="${not empty message}">
+                <p class="message success">${message}</p>
+            </c:if>
+            <c:if test="${not empty error}">
+                <p class="message error">${error}</p>
+            </c:if>
+
             <c:choose>
                 <c:when test="${sessionScope.memberId eq 'admin'}">
                     <div id="member-management-content" class="content-panel active">
                         <h3>회원 관리 페이지</h3>
                         <p>여기에 회원 관리 기능을 구현합니다.</p>
-                        <!-- 실제 회원 관리 테이블 및 기능 추가 -->
                     </div>
                     <div id="product-management-content" class="content-panel">
-                        <h3>상품 관리 페이지</h3>
-                        <p>여기에 상품 관리 기능을 구현합니다.</p>
-                        <!-- 실제 상품 관리 테이블 및 기능 추가 -->
+                        <h3>등록된 상품 목록</h3>
+                        <c:if test="${empty productList}">
+                            <p class="no-items">등록된 상품이 없습니다.</p>
+                        </c:if>
+                        <c:if test="${not empty productList}">
+                            <table class="product-list-table">
+                                <thead>
+                                    <tr>
+                                        <th>이미지</th>
+                                        <th>상품명</th>
+                                        <th>가격</th>
+                                        <th>재고</th>
+                                        <th>등록일</th>
+                                        <th>관리</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="product" items="${productList}">
+                                        <tr>
+                                            <td><img src="<c:url value='${product.prodImage}'/>" alt="${product.prodName}"></td>
+                                            <td>${product.prodName}</td>
+                                            <td><fmt:formatNumber value="${product.prodPrice}" type="currency" currencySymbol="₩"/></td>
+                                            <td>${product.prodStock}</td>
+                                            <td><fmt:formatDate value="${product.prodReg}" pattern="yyyy-MM-dd"/></td>
+                                            <td>
+                                                <a href="#" class="action-btn">수정</a>
+                                                <a href="#" class="action-btn remove-btn">삭제</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
                     </div>
                     <div id="notice-management-content" class="content-panel">
                         <h3>공지 관리 페이지</h3>
                         <p>여기에 공지 관리 기능을 구현합니다.</p>
-                        <!-- 실제 공지 관리 테이블 및 기능 추가 -->
                     </div>
                 </c:when>
                 <c:otherwise>
                     <div id="member-info-content" class="content-panel active">
                         <div class="member-info-panel">
                             <form action="user_info" method="post" class="info-form">
-                                
                                 <div class="form-group">
                                     <div class="form-row">
                                         <label for="MEMBER_ID_VIEW">아이디</label>
@@ -652,35 +662,30 @@
                                     </div>
                                     <input type="hidden" name="MEMBER_ID" value="${memberInfo.memberId}">
                                 </div>
-
                                 <div class="form-group">
                                     <div class="form-row">
                                         <label for="MEMBER_PW">새 비밀번호</label>
                                         <input type="password" id="MEMBER_PW" name="MEMBER_PW" placeholder="새 비밀번호를 입력해주세요 (변경 시에만 입력)" > 
                                     </div>
                                 </div>
-                                
                                 <div class="form-group">
                                     <div class="form-row">
                                         <label for="MEMBER_NAME">이름</label>
                                         <input type="text" id="MEMBER_NAME" name="MEMBER_NAME" value="${memberInfo.memberName}" required>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="form-row">
                                         <label for="MEMBER_EMAIL">이메일</label>
                                         <input type="email" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${memberInfo.memberEmail}" required>
                                     </div>
                                 </div>
-                                
                                 <div class="form-group">
                                     <div class="form-row">
                                         <label for="MEMBER_PHONE">전화번호</label>
                                         <input type="tel" id="MEMBER_PHONE" name="MEMBER_PHONE" value="${memberInfo.memberPhone}" placeholder="예: 010-1234-5678">
                                     </div>
                                 </div>
-
                                 <div class="address-group">
                                     <div class="form-group">
                                         <div class="form-row">
@@ -691,14 +696,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group">
                                         <div class="form-row">
                                             <label for="MEMBER_ADDR_PRIMARY">기본 주소</label>
                                             <input type="text" id="MEMBER_ADDR_PRIMARY" name="memberAddr1" value="${memberInfo.memberAddr1}" placeholder="도로명 주소 (검색 결과)" readonly>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <div class="form-row">
                                             <label for="MEMBER_ADDR_DETAIL">상세 주소</label>
@@ -718,7 +721,6 @@
                         <c:if test="${empty cartList}">
                             <p class="no-items">장바구니에 담긴 상품이 없습니다.</p>
                         </c:if>
-
                         <c:if test="${not empty cartList}">
                             <table>
                                 <thead>
@@ -739,7 +741,7 @@
                                             </td>
                                             <td><fmt:formatNumber value="${cartItem.prodPrice}" type="currency" currencySymbol="₩"/></td>
                                             <td>
-                                                <form action="${pageContext.request.contextPath}/cart/update" method="post" style="display:flex; align-items:center; justify-content:center;">
+                                                <form action="${pageContext.request.contextPath}/mypage/cart/update" method="post" style="display:flex; align-items:center; justify-content:center;">
                                                     <input type="hidden" name="memberId" value="${memberId}">
                                                     <input type="hidden" name="cartId" value="${cartItem.cartId}">
                                                     <input type="number" name="cartQty" value="${cartItem.cartQty}" min="1" class="quantity-input">
@@ -748,7 +750,7 @@
                                             </td>
                                             <td><fmt:formatNumber value="${itemTotalPrice}" type="currency" currencySymbol="₩"/></td>
                                             <td>
-                                                <form action="${pageContext.request.contextPath}/cart/remove" method="post" style="display:inline;">
+                                                <form action="${pageContext.request.contextPath}/mypage/cart/remove" method="post" style="display:inline;">
                                                     <input type="hidden" name="memberId" value="${memberId}">
                                                     <input type="hidden" name="cartId" value="${cartItem.cartId}">
                                                     <button type="submit" class="cart-action-btn remove-btn">삭제</button>
@@ -762,7 +764,6 @@
                                 총 장바구니 금액: <fmt:formatNumber value="${totalCartPrice}" type="currency" currencySymbol="₩"/>
                             </div>
                         </c:if>
-
                         <div class="action-buttons">
                             <a href="${pageContext.request.contextPath}/">쇼핑 계속하기</a>
                             <c:if test="${not empty cartList}">
@@ -772,11 +773,6 @@
                     </div>
 
                     <div id="wishlist-content" class="content-panel">
-                        
-                        <c:if test="${not empty message}">
-                            <p class="message success">${message}</p>
-                        </c:if>
-
                         <c:if test="${empty wishlist}">
                             <p class="no-items">찜목록에 담긴 상품이 없습니다.</p>
                         </c:if>
@@ -809,7 +805,7 @@
                                                 </form>
                                             </td>
                                             <td>
-                                                <form action="/cart/moveFromWishlist" method="post" style="display:inline;">
+                                                <form action="${pageContext.request.contextPath}/mypage/cart/moveFromWishlist" method="post" style="display:inline;">
                                                     <input type="hidden" name="memberId" value="${param.memberId}">
                                                     <input type="hidden" name="prodId" value="${product.prodId}">
                                                     <input type="hidden" name="cartQty" value="1"> 
@@ -824,11 +820,9 @@
                     </div>
 
                     <div id="order-history-content" class="content-panel">
-
                         <c:if test="${empty orderList}">
                             <p class="no-items">주문 내역이 없습니다.</p>
                         </c:if>
-
                         <c:if test="${not empty orderList}">
                             <table>
                                 <thead>
@@ -872,28 +866,22 @@
             const contentPanels = document.querySelectorAll('.content-panel');
             const mainTitle = document.querySelector('.mypage-content-area h2');
 
-            // Determine default hash based on admin status
             const isAdmin = "${sessionScope.memberId}" === "admin";
             const defaultHash = isAdmin ? 'member-management' : 'member-info';
 
-            // URL Hash에서 ID를 추출 (예: #wishlist -> wishlist)
-            // 없으면 defaultHash를 기본값으로 설정
             const getHashId = () => window.location.hash.substring(1) || defaultHash;
 
             function activatePanel(targetId) {
                 const panelId = targetId + '-content';
-                // 1. 사이드바 링크 활성화
                 sidebarLinks.forEach(link => {
                     const linkHash = link.getAttribute('href').substring(1);
                     if (linkHash === targetId) {
                         link.classList.add('active');
-                        // 2. 메인 타이틀 업데이트
                         mainTitle.textContent = link.textContent;
                     } else {
                         link.classList.remove('active');
                     }
                 });
-                // 3. 콘텐츠 패널 표시/숨김
                 contentPanels.forEach(panel => {
                     if (panel.id === panelId) {
                         panel.classList.add('active');
@@ -903,21 +891,17 @@
                 });
             }
 
-            // 초기 로드 시 실행 (URL 해시에 따라 페이지 표시)
             activatePanel(getHashId());
-            // 사이드바 링크 클릭 이벤트
+
             sidebarLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
-                    event.preventDefault(); // 기본 해시 이동 방지
+                    event.preventDefault();
                     const targetHash = this.getAttribute('href').substring(1);
                     activatePanel(targetHash);
-                    
-                    // URL 해시 업데이트 (페이지 새로고침 없음)
                     window.history.pushState(null, null, this.href);
                 });
             });
 
-            // 브라우저 뒤로/앞으로 버튼 처리
             window.addEventListener('popstate', function() {
                 activatePanel(getHashId());
             });

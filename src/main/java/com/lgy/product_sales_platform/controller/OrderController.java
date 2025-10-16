@@ -34,7 +34,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String showOrderForm(HttpSession session, Model model) {
-        String memberId = (String) session.getAttribute("sessionID");
+        String memberId = (String) session.getAttribute("memberId"); // sessionID -> memberId로 변경
         if (memberId == null) {
             return "redirect:/login"; // 로그인되어 있지 않으면 로그인 페이지로
         }
@@ -45,7 +45,8 @@ public class OrderController {
         if (cartItems == null || cartItems.isEmpty()) {
             // 장바구니에 상품이 없으면 주문서로 이동할 수 없음
             model.addAttribute("error", "장바구니에 상품이 없습니다.");
-            return "redirect:/cart?memberId=" + memberId; 
+            // 장바구니 페이지로 리다이렉트 (마이페이지의 장바구니 탭으로)
+            return "redirect:/mypage#cart"; 
         }
 
         model.addAttribute("cartItems", cartItems);
@@ -54,7 +55,7 @@ public class OrderController {
         final int SHIPPING_FEE = 3000;
         model.addAttribute("shippingFee", SHIPPING_FEE);
         
-        return "order/orderForm"; // order/orderForm.jsp 뷰를 반환
+        return "orderForm"; // "order/orderForm" -> "orderForm"으로 경로 수정
     }
 
     /**
@@ -62,7 +63,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createOrder(HttpSession session, RedirectAttributes redirectAttributes) {
-        String memberId = (String) session.getAttribute("sessionID");
+        String memberId = (String) session.getAttribute("memberId"); // sessionID -> memberId로 변경
         if (memberId == null) {
             return "redirect:/login"; // 로그인되어 있지 않으면 로그인 페이지로
         }
@@ -75,11 +76,13 @@ public class OrderController {
         } catch (IllegalStateException e) {
             log.error("Order creation failed: {}", e.getMessage());
             redirectAttributes.addFlashAttribute("error", e.getMessage());
-            return "redirect:/cart?memberId=" + memberId; // 장바구니 페이지로 리다이렉트하여 오류 메시지 표시
+            // 장바구니 페이지로 리다이렉트 (마이페이지의 장바구니 탭으로)
+            return "redirect:/mypage#cart"; 
         } catch (Exception e) {
             log.error("Order creation failed due to unexpected error", e);
             redirectAttributes.addFlashAttribute("error", "주문 처리 중 예상치 못한 오류가 발생했습니다.");
-            return "redirect:/cart?memberId=" + memberId; 
+            // 장바구니 페이지로 리다이렉트 (마이페이지의 장바구니 탭으로)
+            return "redirect:/mypage#cart"; 
         }
     }
 
@@ -93,6 +96,6 @@ public class OrderController {
             // 주문 정보 없이 직접 접속한 경우, 메인 페이지로 리다이렉트
             return "redirect:/";
         }
-        return "order/orderComplete"; // order/orderComplete.jsp 뷰를 반환
+        return "orderComplete"; // "order/orderComplete" -> "orderComplete"으로 경로 수정
     }
 }
