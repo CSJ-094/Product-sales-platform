@@ -1,0 +1,26 @@
+package com.lgy.product_sales_platform.dto;
+
+import java.sql.Timestamp;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * PRODUCT_DB 테이블과 매핑되는 DTO.
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProdDTO {
+	private int prodId;
+	private String prodSeller;
+	private String prodName;
+	private int prodPrice;
+	private int prodStock;
+	private String prodDesc;
+	private String prodCode;
+	private Timestamp prodReg;
+	private Timestamp prodUpd;
+	private String prodImage; // 복사본에서 추가: 상품 이미지 경로
+}
