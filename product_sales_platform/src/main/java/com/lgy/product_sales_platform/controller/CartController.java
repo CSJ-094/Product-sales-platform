@@ -8,11 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession; // HttpSession 임포트 추가
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cart")
+@RequestMapping("cart") // (A) 기본 경로를 절대 경로로 명시하는 것이 좋습니다.
 public class CartController {
 
     @Autowired
@@ -20,39 +20,40 @@ public class CartController {
     
     // ⭐️ 공통: 세션에서 memberId를 가져오고 로그인 여부를 확인하는 유틸리티 메서드
     private String getMemberIdOrRedirect(HttpSession session, RedirectAttributes redirectAttributes) {
-        String memberId = (String) session.getAttribute("memberId"); // pscontroller에서 설정한 세션 키 사용
+        String memberId = (String) session.getAttribute("memberId");
         
         if (memberId == null) {
-            // 로그인되어 있지 않다면 메시지를 담아 로그인 페이지로 리다이렉트 준비
             redirectAttributes.addFlashAttribute("loginError", "로그인이 필요합니다.");
+            // (B) 로그인 페이지로의 리다이렉트 경로는 보통 /login 이나 /member/login 등 입니다. 
+            // 여기서는 경로 리턴만 하고, 실제 리다이렉트는 호출하는 메서드에서 합니다.
         }
         return memberId;
     }
 
-    // 장바구니 목록 조회 (GET /cart)
+    // 장바구니 목록 조회 (GET /cart/cart)
     @GetMapping
-    // @RequestParam("memberId") String memberId 제거하고 HttpSession으로 대체
     public String getCartList(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         // 1. 세션에서 memberId를 가져오고 로그인 여부 확인
         String memberId = getMemberIdOrRedirect(session, redirectAttributes);
         
         if (memberId == null) {
-            return "redirect:/login"; // 로그인 페이지로 리다이렉트
+            // (C) 로그인 페이지 경로를 정확하게 확인하여 수정해야 합니다. 
+            return "redirect:/login/login"; // 예: /login 경로가 로그인 폼을 보여주는 컨트롤러 매핑이라고 가정
         }
 
         // 2. 장바구니 목록 조회 (로그인 상태)
         List<CartDTO> cartList = cartService.getCartListByMemberId(memberId);
         model.addAttribute("cartList", cartList);
-        model.addAttribute("memberId", memberId); // 뷰에서 memberId가 필요할 경우를 대비하여 추가
+        model.addAttribute("memberId", memberId);
         
-        return "cartList"; // cart/cartList.jsp 뷰를 반환
+        // (D) View 이름 수정: 'cart' 폴더 안의 'cartList.jsp'를 의도했다면
+        return "cart/cartList"; 
     }
 
-    // 장바구니에 상품 추가 (POST /cart/add)
+    // 장바구니에 상품 추가 (POST /cart/cart/add)
     @PostMapping("/add")
-    // @RequestParam("memberId") String memberId 제거하고 HttpSession으로 대체
     public String addCart(HttpSession session, 
-                          @RequestParam("prodId") int prodId,
+                          @RequestParam("prodId") Integer prodId,
                           @RequestParam(value = "cartQty", defaultValue = "1") int cartQty,
                           RedirectAttributes redirectAttributes) {
                           
@@ -60,32 +61,29 @@ public class CartController {
         String memberId = getMemberIdOrRedirect(session, redirectAttributes);
         
         if (memberId == null) {
-            return "redirect:/login";
+            // (C) 로그인 페이지 경로를 정확하게 확인하여 수정해야 합니다.
+            return "redirect:/login"; 
         }
         
-        // 2. 장바구니 추가 로직
+        // 2. 장바구니 추가 로직...
         try {
-            cartService.addCart(memberId, prodId, cartQty); // 세션에서 가져온 ID 사용
+            cartService.addCart(memberId, prodId, cartQty);
             redirectAttributes.addFlashAttribute("message", "상품이 장바구니에 추가되었습니다.");
         } catch (Exception e) {
-            // 예외 처리 (예: 재고 부족 등)
             redirectAttributes.addFlashAttribute("errorMessage", "장바구니 추가 중 오류가 발생했습니다: " + e.getMessage());
         }
         
-        // 3. 장바구니 목록 페이지로 리다이렉트
-        // 리다이렉트 시 memberId를 쿼리 파라미터로 넘기는 대신, getCartList에서 세션을 쓰도록 했으므로 단순 리다이렉트
-        return "redirect:/cart"; 
+        // 3. 장바구니 목록 페이지로 리다이렉트 (절대 경로 사용)
+        return "redirect:/cart/cart"; 
     }
 
-    // 장바구니 상품 수량 변경 (POST /cart/update)
+    // 장바구니 상품 수량 변경 (POST /cart/cart/update)
     @PostMapping("/update")
-    // @RequestParam("memberId") String memberId 제거하고 HttpSession으로 대체
     public String updateCart(@RequestParam("cartId") int cartId,
-                             HttpSession session, // 세션 추가
+                             HttpSession session,
                              @RequestParam("cartQty") int cartQty,
                              RedirectAttributes redirectAttributes) {
         
-        // 1. 세션에서 memberId를 가져오고 로그인 여부 확인
         String memberId = getMemberIdOrRedirect(session, redirectAttributes);
         
         if (memberId == null) {
@@ -94,55 +92,51 @@ public class CartController {
 
         // 2. 수량 변경 로직
         try {
-             // 보안: 세션 ID와 cartId를 함께 사용하여 해당 장바구니 항목이 현재 사용자의 것인지 확인하도록 서비스에 전달
             cartService.updateCartQuantity(cartId, memberId, cartQty); 
             redirectAttributes.addFlashAttribute("message", "장바구니 수량이 변경되었습니다.");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "수량 변경 중 오류가 발생했습니다: " + e.getMessage());
         }
 
-        return "redirect:/cart";
+        return "redirect:/cart/cart";
     }
 
-    // 장바구니 상품 삭제 (POST /cart/remove)
+    // 장바구니 상품 삭제 (POST /cart/cart/remove)
     @PostMapping("/remove")
-    // @RequestParam("memberId") String memberId 제거하고 HttpSession으로 대체
     public String removeCart(@RequestParam("cartId") int cartId,
-                             HttpSession session, // 세션 추가
+                             HttpSession session,
                              RedirectAttributes redirectAttributes) {
         
-        // 1. 세션에서 memberId를 가져오고 로그인 여부 확인
         String memberId = getMemberIdOrRedirect(session, redirectAttributes);
         
         if (memberId == null) {
-            return "redirect:/login";
+            return "redirect:/login/login";
         }
 
         // 2. 삭제 로직
         try {
-            // 보안: 세션 ID와 cartId를 함께 사용하여 해당 항목이 현재 사용자의 것인지 확인
             cartService.deleteCart(cartId, memberId); 
             redirectAttributes.addFlashAttribute("message", "장바구니에서 상품이 삭제되었습니다.");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "상품 삭제 중 오류가 발생했습니다: " + e.getMessage());
         }
         
-        return "redirect:/cart";
+        // 리다이렉트 경로 수정 (절대 경로 사용)
+        return "redirect:/cart/cart";
     }
 
-    // 찜목록 상품을 장바구니로 이동 (POST /cart/moveFromWishlist)
+    // 찜목록 상품을 장바구니로 이동 (POST /cart/cart/moveFromWishlist)
     @PostMapping("/moveFromWishlist")
-    // @RequestParam("memberId") String memberId 제거하고 HttpSession으로 대체
-    public String moveFromWishlist(HttpSession session, // 세션 추가
-                                   @RequestParam("prodId") int prodId,
+    public String moveFromWishlist(HttpSession session,
+                                   @RequestParam("prodId") Integer prodId,
                                    @RequestParam(value = "cartQty", defaultValue = "1") int cartQty,
                                    RedirectAttributes redirectAttributes) {
         
-        // 1. 세션에서 memberId를 가져오고 로그인 여부 확인
         String memberId = getMemberIdOrRedirect(session, redirectAttributes);
         
         if (memberId == null) {
-            return "redirect:/login";
+            // (C) 로그인 페이지 경로를 정확하게 확인하여 수정해야 합니다.
+            return "redirect:/login/login"; 
         }
         
         // 2. 이동 로직
@@ -153,6 +147,7 @@ public class CartController {
             redirectAttributes.addFlashAttribute("errorMessage", "상품 이동 중 오류가 발생했습니다: " + e.getMessage());
         }
         
-        return "redirect:/cart";
+        // 리다이렉트 경로 수정 (절대 경로 사용)
+        return "redirect:/cart/cart";
     }
 }

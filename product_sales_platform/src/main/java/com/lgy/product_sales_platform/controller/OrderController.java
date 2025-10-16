@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/order")
+@RequestMapping("order/order")
 public class OrderController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String showOrderForm(HttpSession session, Model model) {
-        String memberId = (String) session.getAttribute("sessionID");
+        String memberId = (String) session.getAttribute("memberId");
         if (memberId == null) {
             return "redirect:/login"; // 로그인되어 있지 않으면 로그인 페이지로
         }
@@ -62,7 +62,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createOrder(HttpSession session, RedirectAttributes redirectAttributes) {
-        String memberId = (String) session.getAttribute("sessionID");
+        String memberId = (String) session.getAttribute("memberId");
         if (memberId == null) {
             return "redirect:/login"; // 로그인되어 있지 않으면 로그인 페이지로
         }
@@ -79,7 +79,7 @@ public class OrderController {
         } catch (Exception e) {
             log.error("Order creation failed due to unexpected error", e);
             redirectAttributes.addFlashAttribute("error", "주문 처리 중 예상치 못한 오류가 발생했습니다.");
-            return "redirect:/cart?memberId=" + memberId; 
+            return "redirect:/cart/cart"; 
         }
     }
 
@@ -93,6 +93,6 @@ public class OrderController {
             // 주문 정보 없이 직접 접속한 경우, 메인 페이지로 리다이렉트
             return "redirect:/";
         }
-        return "order/orderComplete"; // order/orderComplete.jsp 뷰를 반환
+        return "redirect:/order/order/complete"; // order/orderComplete.jsp 뷰를 반환
     }
 }

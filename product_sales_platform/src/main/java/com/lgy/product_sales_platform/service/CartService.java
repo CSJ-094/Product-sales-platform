@@ -29,7 +29,7 @@ public class CartService {
     /**
      * 장바구니에 상품을 추가합니다. 이미 있으면 수량만 증가시킵니다.
      */
-    public void addCart(String memberId, int prodId, int cartQty) {
+    public void addCart(String memberId, Integer prodId, int cartQty) {
         CartDTO existingCartItem = cartDAO.getCartItemByMemberIdAndProdId(memberId, prodId);
         if (existingCartItem != null) {
             // 이미 장바구니에 있는 상품이면 수량만 업데이트
@@ -68,7 +68,7 @@ public class CartService {
      * 장바구니에 상품을 추가하고, 찜목록에서 해당 상품을 삭제합니다.
      */
     @Transactional // 두 개 이상의 DB 작업이 하나의 논리적인 단위로 처리되도록 트랜잭션 적용
-    public void moveWishlistItemToCart(String memberId, int prodId, int cartQty) {
+    public void moveWishlistItemToCart(String memberId, Integer prodId, int cartQty) {
         // 1. 장바구니에 상품 추가 (기존 addCart 로직 재사용 가능)
         addCart(memberId, prodId, cartQty);
 

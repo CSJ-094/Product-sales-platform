@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lgy.product_sales_platform.dto.ProdDTO;
 import com.lgy.product_sales_platform.service.ProductService;
-
+import javax.servlet.http.HttpSession;
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/product/product")
 public class ProductController {
 
     @Autowired
@@ -19,11 +19,14 @@ public class ProductController {
 
     // 상품 상세 페이지 조회
     @GetMapping("/detail")
-    public String getProductDetail(@RequestParam("prodId") int prodId, Model model) {
+    public String getProductDetail(@RequestParam("prodId") Integer prodId, Model model, HttpSession session) {
         ProdDTO product = productService.getProductById(prodId);
         model.addAttribute("product", product);
-        // 임시 memberId (실제로는 로그인 세션에서 가져와야 함)
-        model.addAttribute("memberId", "user01"); 
-        return "product/productDetail"; // product/productDetail.jsp 뷰를 반환
+
+        // ⭐️ 실제 로그인 세션에서 memberId를 가져옴 (없으면 null)
+        String memberId = (String) session.getAttribute("memberId");
+        model.addAttribute("memberId", memberId); // memberId가 null이면 로그아웃 상태
+
+        return "product/productDetail";
     }
 }

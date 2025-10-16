@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProdDTO {
-	private int prodId;
+	private Long prodId;
 	private String prodSeller;
 	private String prodName;
 	private int prodPrice;
@@ -22,5 +22,4 @@ public class ProdDTO {
 	private String prodCode;
 	private Timestamp prodReg;
 	private Timestamp prodUpd;
-	private String prodImage; // 복사본에서 추가: 상품 이미지 경로
 }

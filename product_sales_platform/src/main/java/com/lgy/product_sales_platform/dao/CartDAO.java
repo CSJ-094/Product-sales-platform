@@ -42,7 +42,7 @@ public interface CartDAO {
      * @param prodId 상품 ID
      * @return 장바구니 항목 DTO (없으면 null)
      */
-    CartDTO getCartItemByMemberIdAndProdId(@Param("memberId") String memberId, @Param("prodId") int prodId);
+    CartDTO getCartItemByMemberIdAndProdId(@Param("memberId") String memberId, @Param("prodId") Integer prodId);
 
     /**
      * 회원의 장바구니를 모두 비웁니다. (주문 완료 후 사용)

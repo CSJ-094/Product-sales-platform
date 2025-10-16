@@ -15,7 +15,7 @@ import java.util.List;
 public interface WishlistDAO {
     /**
      * 회원 ID를 기반으로 찜목록에 담긴 상품 목록을 조회합니다.
-     * 찜목록 정보와 상품 정보를 조인하여 ProductDTO 형태로 반환합니다.
+     * 찜목록 정보와 상품 정보를 조인하여 ProdDTO 형태로 반환합니다.
      * @param memberId 찜목록을 조회할 회원의 ID
      * @return 해당 회원의 찜목록 상품 목록
      */

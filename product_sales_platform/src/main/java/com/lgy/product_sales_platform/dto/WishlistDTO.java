@@ -13,6 +13,6 @@ public class WishlistDTO {
     
     private int wishId;      // WISHLIST_DB.WISH_ID
     private String memberId; // WISHLIST_DB.MEMBER_ID
-    private int prodId;      // WISHLIST_DB.PROD_ID
+    private long prodId;      // WISHLIST_DB.PROD_ID
     private Timestamp wishDate; // WISHLIST_DB.WISH_DATE (Timestamp로 변경)
 }

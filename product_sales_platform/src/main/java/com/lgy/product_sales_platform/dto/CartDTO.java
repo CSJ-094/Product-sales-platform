@@ -11,7 +11,7 @@ import java.util.Date;
 public class CartDTO {
     private int cartId;     // 장바구니 ID (PRIMARY KEY)
     private String memberId; // 회원 ID (FK)
-    private int prodId;     // 상품 ID (FK)
+    private long prodId;     // 상품 ID (FK)
     private int cartQty;    // 장바구니에 담긴 상품 수량
     private Date regDate;    // 장바구니에 담은 날짜
 

@@ -1,0 +1,441 @@
+@charset "EUC-KR";
+/* 기본 스타일 초기화 및 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 1. 헤더 스타일 */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0 0; /* 아래쪽 padding을 0으로 줄여 카테고리와의 간격 조정 */
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* 수직 배치 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    padding: 0 20px;
+}
+
+.logo {
+    margin-bottom: 15px; /* 로고와 카테고리 사이 간격 */
+    padding-bottom: 5px;
+}
+
+.logo a {
+    font-size: 26px;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.categories {
+    width: 100%; /* 전체 너비 차지 */
+    border-top: 1px solid #eee; /* 구분선 */
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.categories ul {
+    display: flex;
+    gap: 30px;
+}
+
+.categories a {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.categories a:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+
+/* 2. 마이페이지 메인 영역 스타일 */
+.mypage-body {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* 왼쪽 사이드바 */
+.mypage-sidebar {
+    flex-shrink: 0;
+    width: 180px;
+    background-color: #ffffff;
+    padding: 20px 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.mypage-sidebar a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 15px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mypage-sidebar a:hover {
+    background-color: #f0f0f0;
+}
+
+/* 현재 선택된 메뉴 강조 */
+.mypage-sidebar a.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+}
+
+/* 오른쪽 콘텐츠 영역 */
+.mypage-content-area {
+    flex-grow: 1;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mypage-content-area h2 {
+    font-size: 24px;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 콘텐츠 패널 - 기본 숨김 */
+.content-panel {
+    display: none;
+}
+
+/* 활성화된 콘텐츠 */
+.content-panel.active {
+    display: block;
+}
+
+/* --- 회원 정보 폼 전용 스타일 --- */
+.info-form {
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* 기본 입력 필드 스타일 */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    margin-top: 5px; /* 주소 필드 간격 확보 */
+}
+
+/* 수정 불가능한 아이디 필드 스타일 */
+#MEMBER_ID {
+    background-color: #eee;
+    color: #777;
+}
+
+/* --- 주소 그룹 전용 스타일 --- */
+.address-group input {
+    margin-bottom: 10px;
+}
+
+.address-zip-row {
+    display: flex;
+    gap: 10px; /* 우편번호 필드와 버튼 사이 간격 */
+    margin-bottom: 10px;
+}
+
+.address-search-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #6c757d; /* 회색 버튼 */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    flex-shrink: 0; /* 버튼 크기 유지 */
+    transition: background-color 0.3s;
+}
+
+.address-search-btn:hover {
+    background-color: #5a6268;
+}
+
+/* 수정 불가능한 주소 필드 스타일 */
+#zipcode,
+#MEMBER_ADDR_PRIMARY {
+    background-color: #eee;
+    color: #777;
+}
+/* --- 주소 그룹 전용 스타일 끝 --- */
+
+.password-link-group {
+    margin: 25px 0;
+    text-align: right;
+}
+
+.password-change-link {
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-btn,
+.reset-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.reset-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.reset-btn:hover {
+    background-color: #bbb;
+}
+
+/* 테이블 전체 정렬 */
+.mypage-content-area table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;           /* 제목 파란줄과 간격 */
+    text-align: center;         /* 모든 칸 가운데 정렬 */
+}
+
+/* 헤더 스타일 (아이디, 이름, 이메일 등) */
+.mypage-content-area table thead th {
+    border-bottom: 2px solid #007bff;  /* 파란 줄 */
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* 데이터 셀 스타일 */
+.mypage-content-area table tbody td {
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    color: #555;
+}
+
+/* 보기 링크를 버튼처럼 강조 */
+.mypage-content-area table tbody td a {
+    font-weight: 700;          /* 두껍게 */
+    color: #007bff;            /* 파란색 글자 */
+    text-decoration: none;     /* 밑줄 제거 */
+    transition: color 0.2s;
+}
+
+.mypage-content-area table tbody td a:hover {
+    color: #0056b3;            /* hover 시 진한 파랑 */
+    text-decoration: underline; /* 마우스 올리면 밑줄 */
+}
+
+/* 상단 페이지 헤더 */
+.page-header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;margin-bottom:18px
+}
+.page-title h2{
+  margin:0;font-size:24px;line-height:1.2
+}
+.page-sub{
+  margin-top:6px;color:#6b7280;font-size:14px
+}
+
+/* 섹션 타이틀(파란 밑줄 유지) */
+.section-title{
+  font-size:18px;margin:10px 0 8px 0
+}
+
+/* 버튼 스타일 일원화 */
+.btn{display:inline-flex;align-items:center;gap:8px;
+  padding:10px 14px;border:1px solid #d0d4da;border-radius:10px;
+  background:#fff;color:#111827;font-weight:600;text-decoration:none;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);transition:.15s ease
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.btn:active{transform:none;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.btn-lg{padding:12px 18px;border-radius:12px}
+.btn-primary{background:#007bff;color:#fff;border-color:#007bff}
+.btn-primary:hover{filter:brightness(.96)}
+.btn-primary:focus{outline:3px solid rgba(0,123,255,.25)}
+
+/* 버튼 아이콘 */
+.btn-icon{font-size:18px;line-height:1;}
+
+/* 반응형: 좁은 화면에서 버튼이 아래로 떨어지도록 */
+@media (max-width: 640px){
+  .page-header{flex-direction:column;align-items:flex-start}
+  .btn-lg{width:100%;justify-content:center}
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.inline-form {
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+/* 파란색 버튼 (수정/목록) */
+.btn.blue {
+  background-color: #1677ff;
+}
+.btn.blue:hover {
+  background-color: #125ed4;
+}
+
+/* 빨간색 버튼 (삭제) */
+.btn.red {
+  background-color: #e74c3c;
+}
+.btn.red:hover {
+  background-color: #c0392b;
+}
+
+.product-categories{margin-top:16px;}
+.product-categories .help{color:#777;font-size:12px;margin:6px 0 10px;}
+#cat-tree .cat-row{display:flex;align-items:center;gap:12px;padding:4px 0;}
+#cat-tree .cat-row label{display:flex;align-items:center;gap:6px;}
+.main-radio{margin-left:auto;opacity:.9;}
+.cat-main:disabled{opacity:.4;}
+
+/* === Category Accordion (details/summary) === */
+.product-categories { margin-top: 16px; }
+.product-categories .help { color:#666; font-size:12px; margin:4px 0 10px; }
+
+.cat-accordion { border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; background:#fff; }
+.cat-group { border-top:1px solid #f3f4f6; }
+.cat-group:first-of-type { border-top:0; }
+
+/* summary 라인 */
+.cat-summary {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:10px 12px; cursor:pointer; list-style:none;
+}
+.cat-summary::-webkit-details-marker { display:none; } /* 기본 화살표 제거(크롬) */
+.cat-summary::before { /* 사용자 정의 화살표 */
+  content: "▶";
+  font-size:12px; margin-right:6px; color:#555;
+}
+.cat-group[open] .cat-summary::before { content: "▼"; }
+
+/* 라벨/라디오 */
+.cat-label { display:flex; align-items:center; gap:8px; }
+.main-radio { white-space:nowrap; color:#666; font-size:13px; }
+
+/* 하위 목록(소분류) – 여백 + 2열 그리드 + 행간 */
+.cat-sublist {
+  margin:0;
+  padding:10px 14px 14px 28px;   /* ← 들여쓰기 강조 */
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2열 */
+  column-gap:24px;
+  row-gap:10px;
+  background:#fff;
+}
+
+/* 각 소분류 라인 */
+.cat-subitem {
+  display:flex; align-items:center; gap:12px;
+  border-bottom:1px dashed #f1f5f9;
+  padding-bottom:8px;
+}
+.cat-subitem:last-child { border-bottom:0; }
+
+/* 체크박스/라디오와 텍스트 간격 */
+.cat-label { display:flex; align-items:center; gap:8px; }
+.main-radio { margin-left:auto; color:#666; font-size:13px; white-space:nowrap; }
+
+/* 대분류도 체크박스/라디오 쓰면 간격 정리 */
+.cat-summary .cat-label { gap:8px; }

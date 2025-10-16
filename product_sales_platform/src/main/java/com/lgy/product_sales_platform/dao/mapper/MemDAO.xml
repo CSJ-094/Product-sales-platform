@@ -43,5 +43,31 @@
         FROM USER_DB
         WHERE MEMBER_ID = #{memberId}
 </select>
+ 
+ <!-- resultMap: DB 컬럼 → UserDto 필드 매핑 -->
+    <resultMap id="UserMap" type="com.lgy.product_sales_platform.dto.MemDTO">
+        <result column="MEMBER_ID" property="memberId"/>
+        <result column="MEMBER_PW" property="memberPw"/>
+        <result column="MEMBER_NAME" property="memberName"/>
+        <result column="MEMBER_EMAIL" property="memberEmail"/>
+        <result column="MEMBER_PHONE" property="memberPhone"/>
+        <result column="MEMBER_ZIPCODE" property="memberZipcode"/>
+        <result column="MEMBER_ADDR1" property="memberAddr1"/>
+        <result column="MEMBER_ADDR2" property="memberAddr2"/>
+    </resultMap>
+
+    <!-- 전체 회원 조회 -->
+    <select id="getUserList" resultMap="UserMap">
+        SELECT MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE, MEMBER_ZIPCODE, MEMBER_ADDR1, MEMBER_ADDR2
+        FROM USER_DB
+        ORDER BY MEMBER_ID
+    </select>
+
+    <!-- 회원 상세 -->
+    <select id="getUser" parameterType="string" resultMap="UserMap">
+        SELECT MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE, MEMBER_ZIPCODE, MEMBER_ADDR1, MEMBER_ADDR2
+        FROM USER_DB
+        WHERE MEMBER_ID = #{memberId}
+    </select>
   
 </mapper>

@@ -19,14 +19,14 @@ public class WishlistService {
         return wishlistMapper.getWishlistByMemberId(memberId);
     }
 
-    public void addWishlist(String memberId, int prodId) {
+    public void addWishlist(String memberId, Integer prodId) {
         WishlistDTO wishlistDTO = new WishlistDTO();
         wishlistDTO.setMemberId(memberId);
         wishlistDTO.setProdId(prodId);
         wishlistMapper.addWishlist(wishlistDTO);
     }
 
-    public void removeWishlist(String memberId, int prodId) {
+    public void removeWishlist(String memberId, Integer prodId) {
         WishlistDTO wishlistDTO = new WishlistDTO();
         wishlistDTO.setMemberId(memberId);
         wishlistDTO.setProdId(prodId);

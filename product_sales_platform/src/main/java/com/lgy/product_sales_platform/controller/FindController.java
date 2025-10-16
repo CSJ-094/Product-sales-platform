@@ -21,36 +21,36 @@ public class FindController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping("/find")
+	@RequestMapping("find")
 	public String findOption() {
 		log.info("@# findOption() - 아이디/비밀번호 찾기 선택 페이지 요청");
 		
 		// ⚠️ findOption.jsp 파일을 찾도록 뷰 이름을 반환합니다.
-		return "findOption"; 
+		return "find/findOption"; 
 	}
 	
     /**
      * 아이디 찾기 페이지를 보여줍니다.
      */
-	@RequestMapping("/findId")
+	@RequestMapping("findId")
 	public String findId() {
 		log.info("@# findId() - 아이디 찾기 페이지 요청");
 		
-		return "findId"; // findId.jsp로 이동
+		return "find/findId"; // findId.jsp로 이동
 	}
 	
-	@RequestMapping("/findPw")
+	@RequestMapping("findPw")
 	public String findPw() {
 		log.info("@# findPw() - 비밀번호 찾기 페이지 요청");
 		
-		return "findPw"; // findPw.jsp로 이동
+		return "find/findPw"; // findPw.jsp로 이동
 	}
 	
     /**
      * 아이디 찾기 정보를 확인하고 결과를 반환합니다.
      * 파라미터를 HashMap에서 LoginDTO로 변경하고, Service의 DTO 기반 메서드를 호출합니다.
      */
-	@RequestMapping("/findIdCheck")
+	@RequestMapping("findIdCheck")
 	public String findIdCheck(LoginDTO loginDTO, Model model) { 
 		log.info("@# findIdCheck() - 아이디 찾기 처리. Name: {}, Email: {}", 
 				loginDTO.getMemberName(), loginDTO.getMemberEmail());
@@ -59,11 +59,11 @@ public class FindController {
 		
 		if (dtos == null || dtos.isEmpty()) {
             model.addAttribute("findError", "입력하신 정보와 일치하는 아이디를 찾을 수 없습니다.");
-			return "login";
+			return "redirect:/login";
 		} else {
 			log.info("@# 찾은 아이디 목록: {}", dtos.size());
 			model.addAttribute("dtos", dtos);
-			return "findIdResult"; // findIdResult.jsp로 이동
+			return "find/findIdResult"; // findIdResult.jsp로 이동
 		}
 	}
     
@@ -71,7 +71,7 @@ public class FindController {
      * 비밀번호 찾기 정보를 확인하고 결과를 반환합니다.
      * 파라미터를 HashMap에서 LoginDTO로 변경하고, Service의 DTO 기반 메서드를 호출합니다.
      */
-	@PostMapping("/findPwCheck")
+	@PostMapping("findPwCheck")
 	// ⚠️ HashMap 대신 LoginDTO를 파라미터로 받아 Service의 기조에 맞춥니다.
 	public String findPwCheck(LoginDTO loginDTO, Model model) {
 		log.info("@# findPwCheck() - 비밀번호 찾기 처리. ID: " + loginDTO.getMemberId() + 
@@ -85,7 +85,7 @@ public class FindController {
 		if (dtos == null || dtos.isEmpty()) {
 		    // 회원 정보를 찾지 못한 경우
 		    model.addAttribute("findError", "입력하신 정보와 일치하는 회원 정보를 찾을 수 없습니다.");
-			return "login";
+			return "redirect:/login";
 		} else {
 			// 비밀번호 찾기 성공 (일반적으로 첫 번째 DTO만 사용)
 			LoginDTO foundDto = dtos.get(0);
@@ -94,7 +94,7 @@ public class FindController {
 			
 			model.addAttribute("member", foundDto);
 			// 임시 비밀번호 발급 로직이나 재설정 페이지로 이동하는 것이 보안상 가장 좋습니다.
-			return "findPwResult"; 
+			return "find/findPwResult"; 
 		}
 	}
 }

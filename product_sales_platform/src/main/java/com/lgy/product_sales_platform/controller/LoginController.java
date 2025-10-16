@@ -28,14 +28,14 @@ public class LoginController {
 	// ===================================================================
 
 	// 로그인 화면 이동
-	@RequestMapping("/login")
+	@RequestMapping("login")
 	public String login() {
 		log.info("@# login()");
-		return "login";
+		return "login/login";
 	}
 
 	// 로그인 여부 판단
-	@RequestMapping(value = "/login_yn", method = RequestMethod.POST)
+	@RequestMapping(value = "login_yn", method = RequestMethod.POST)
 	public String login_yn(LoginDTO loginDTO, HttpSession session, Model model) {
 	    log.info("@# login_yn() - ID: {}", loginDTO.getMemberId());
 	    
@@ -54,12 +54,12 @@ public class LoginController {
 	        } else {
 	            model.addAttribute("loginResult", "비밀번호가 일치하지 않습니다.");
 	            log.info("@# 비밀번호 불일치");
-	            return "login";
+	            return "login/login";
 	        }
 	    } else {
 	        model.addAttribute("loginResult", "아이디가 존재하지 않습니다.");
 	        log.info("@# 아이디 없음");
-	        return "login";
+	        return "login/login";
 	    }
 	}
 
@@ -77,10 +77,10 @@ public class LoginController {
 	
 	
 	// 등록 화면 이동
-	@RequestMapping("/register")
+	@RequestMapping("register")
 	public String register() {
 		log.info("@# register()");
-		return "register";
+		return "login/register";
 	}
 
 	// 회원가입 처리
@@ -88,7 +88,7 @@ public class LoginController {
 	public String registerOk(LoginDTO loginDTO) {
 		log.info("@# registerOk()");
 		service.write(loginDTO);
-		return "login";
+		return "login/login";
 	}
 
 	// 아이디 중복 확인 (Ajax)
