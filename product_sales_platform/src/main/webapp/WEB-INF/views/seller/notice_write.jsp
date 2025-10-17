@@ -42,7 +42,7 @@
         </div>
 
         <div class="button-group">
-          <button type="submit" class="submit-btn">등록하기</button>
+          <button type="submit" class="btn-submit">등록하기</button>
           <a href="${pageContext.request.contextPath}/seller/notices" class="reset-btn">취소</a>
         </div>
       </form>

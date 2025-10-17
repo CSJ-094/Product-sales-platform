@@ -36,7 +36,9 @@
           <div class="form-group"><label>이름</label> ${user.memberName}</div>
           <div class="form-group"><label>이메일</label> ${user.memberEmail}</div>
           <div class="form-group"><label>전화번호</label> ${user.memberPhone}</div>
-          <div class="form-group"><label>주소</label> ${user.memberAddr}</div>
+          <div class="form-group"><label>우편번호</label> ${user.memberZipcode}</div>
+          <div class="form-group"><label>상세주소</label> ${user.memberAddr1}</div>
+          <div class="form-group"><label>상세주소2</label> ${user.memberAddr2}</div>
         </div>
 
         <h3 style="margin-top:30px;">의류 구매 내역</h3>

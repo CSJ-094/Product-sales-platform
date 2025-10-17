@@ -76,6 +76,8 @@
 
         /* ==================== 1. 헤더 스타일 (mainpage.jsp 기준) ==================== */
         .main-header {
+        	width: 1440px;
+			margin: 0 auto;
             background-color: #2c2c2c; [cite_start]/* ⭐️ mainpage.jsp 헤더 배경색 적용 [cite: 181] */
             border-bottom: none;
             padding: 15px 0;
@@ -437,8 +439,8 @@
                 <ul>
                     <li><a href="/category/mans">MANS</a></li>
                     <li><a href="/category/women">WOMEN</a></li>
-                    <li><a href="/category/kids">KIDS</a></li>
-                    <li><a href="/category/shoes">SHOES</a></li>
+                    <li><a href="/category/unisex">UNISEX</a></li>
+                    <li><a href="/category/sports">SPORTS</a></li>
                 </ul>
             </nav>
         </div>

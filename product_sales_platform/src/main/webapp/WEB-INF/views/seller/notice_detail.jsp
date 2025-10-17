@@ -40,8 +40,8 @@
       </div>
 
       <div class="button-group" style="margin-top:20px;">
-        <a href="${pageContext.request.contextPath}/seller/notices" class="submit-btn">목록으로</a>
-        <a href="${pageContext.request.contextPath}/seller/notices/modify?notNo=${notice.NOT_NO}" class="submit-btn">수정</a>
+        <a href="${pageContext.request.contextPath}/seller/notices" class="btn-submit">목록으로</a>
+        <a href="${pageContext.request.contextPath}/seller/notices/modify?notNo=${notice.NOT_NO}" class="btn-submit">수정</a>
 
         <form action="${pageContext.request.contextPath}/seller/notices/delete" method="post" style="display:inline;">
           <input type="hidden" name="notNo" value="${notice.NOT_NO}" />

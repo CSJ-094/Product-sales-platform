@@ -16,16 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+@RequestMapping("find")
 public class FindController {
 	
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping("find")
+	@RequestMapping("/findOption")
 	public String findOption() {
 		log.info("@# findOption() - 아이디/비밀번호 찾기 선택 페이지 요청");
 		
-		// ⚠️ findOption.jsp 파일을 찾도록 뷰 이름을 반환합니다.
 		return "find/findOption"; 
 	}
 	

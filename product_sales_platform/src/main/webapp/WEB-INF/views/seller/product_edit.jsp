@@ -49,56 +49,45 @@
           <textarea name="prodDesc" rows="6">${product.prodDesc}</textarea>
         </div>
 <section class="product-categories">
-  <h3>카테고리</h3>
-  <p class="help">여러 개 선택 가능 · 대표 1개 지정</p>
+    <h3>카테고리</h3>
+    <p class="help">여러 개 선택 가능 · 대표 1개 지정</p>
 
-  <div class="cat-accordion">
-    <!-- 대분류 -->
-    <c:forEach var="top" items="${categories}">
-      <c:if test="${top.depth == 2}">
-        <details class="cat-group">
-          <summary class="cat-summary">
-            <!-- 대분류도 선택 가능하게 둘 경우 -->
-            <label class="cat-label">
-              <input type="checkbox" name="catIds" value="${top.catId}"
-                     <c:if test="${checkedMap[top.catId]}">checked</c:if> />
-              <span>${top.catName}</span>
-            </label>
-            <label class="main-radio">
-              <input type="radio" name="mainCatId" value="${top.catId}"
-                     <c:if test="${mainCatIdStr == top.catId}">checked</c:if> />
-              대표
-            </label>
-          </summary>
+    <div class="cat-accordion">
+        <c:forEach var="top" items="${categories}">
+            <c:if test="${top.depth == 1}">
+                <details class="cat-group" open>
+                    <summary class="cat-summary">
+                        <span>${top.catName}</span>
+                    </summary>
 
-          <!-- 소분류 -->
-          <ul class="cat-sublist">
-            <c:forEach var="sub" items="${categories}">
-              <c:if test="${sub.depth == 3 && sub.catParent == top.catId}">
-                <li class="cat-subitem">
-                  <label class="cat-label">
-                    <input type="checkbox" name="catIds" value="${sub.catId}"
-                           <c:if test="${checkedMap[sub.catId]}">checked</c:if> />
-                    <span>${sub.catName}</span>
-                  </label>
-                  <label class="main-radio">
-                    <input type="radio" name="mainCatId" value="${sub.catId}"
-                           <c:if test="${mainCatIdStr == sub.catId}">checked</c:if> />
-                    대표
-                  </label>
-                </li>
-              </c:if>
-            </c:forEach>
-          </ul>
-        </details>
-      </c:if>
-    </c:forEach>
-  </div>
+                    <ul class="cat-sublist">
+                        <c:forEach var="sub" items="${categories}">
+                            <c:if test="${sub.depth == 2 && sub.catParent == top.catId}">
+                                <li class="cat-subitem">
+                                    <label class="cat-label">
+                                        <input type="checkbox" name="catIds" value="${sub.catId}" class="cat-check"
+                                                <c:if test="${checkedMap[sub.catId]}">checked</c:if> />
+                                        <span>${sub.catName}</span>
+                                    </label>
+                                    
+                                    <label class="main-radio">
+                                        <input type="radio" name="mainCatId" value="${sub.catId}" class="cat-main"
+                                                <c:if test="${mainCatIdStr == sub.catId}">checked</c:if> />
+                                        대표
+                                    </label>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                    </ul>
+                </details>
+            </c:if>
+        </c:forEach>
+    </div>
 </section>
 		
 
         <div class="button-group">
-          <button type="submit" class="submit-btn">저장</button>
+          <button type="submit" class="btn-submit">저장</button>
           <a href="${pageContext.request.contextPath}/seller/products/${product.prodId}" class="reset-btn">취소</a>
         </div>
       </form>
