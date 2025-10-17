@@ -1,0 +1,328 @@
+<changelist name="revert_전에_커밋되지_않은_변경_내용_[변경]2" date="1760684243462" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/shelved.patch" />
+  <option name="DESCRIPTION" value="revert 전에 커밋되지 않은 변경 내용 [변경]" />
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/service/OrderService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrderService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/SelDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SelDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/slf4j-api-1.6.6.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/CartDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CartDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.9.10.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/jackson-annotations-2.9.10.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-core-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-core-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/NoticeService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/NoticeService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/controller/NoticeController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/NoticeController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/img/main_banner.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/main_banner.jpg" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/controller/CartController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CartController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/CartDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CartDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/ProdDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProdDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/SellerService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SellerService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-1.2.15.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/log4j-1.2.15.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/controller/LoginController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/LoginController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/SelDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SelDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/OrderDetailDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrderDetailDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/CategoryDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CategoryDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-expression-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-expression-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/CategoryDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CategoryDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/MemDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/MemDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/NoticeDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/NoticeDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/LoginDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/LoginDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/slf4j-log4j12-1.6.6.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/controller/SellerController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SellerController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/controller/pscontroller.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/pscontroller.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.mail-1.6.2.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/javax.mail-1.6.2.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/WishlistDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/WishlistDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT.war" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/product_sales_platform-1.0.0-BUILD-SNAPSHOT.war" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/src/main/webapp/img/woman/3.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/3.jpg" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-aop-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-aop-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/img/woman/1.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/1.jpg" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/img/man/4.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/4.jpg" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/ImageDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ImageDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/LoginDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/LoginDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/service/LoginService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/LoginService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/SellerDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SellerDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/WishlistDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/WishlistDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/OrderDetailDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrderDetailDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/controller/MainController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/MainController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/controller/ProductController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProductController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-3.5.10.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/mybatis-3.5.10.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/MemDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/MemDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/ImageDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ImageDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/ProdDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProdDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-web-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-web-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/HomeController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/HomeController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/OrdDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrdDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.4.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/commons-fileupload-1.4.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjrt-1.6.10.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/aspectjrt-1.6.10.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/jcl-over-slf4j-1.6.6.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-spring-2.0.7.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/mybatis-spring-2.0.7.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/controller/FindController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/FindController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/controller/OrderController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrderController.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/ProductService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProductService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/ProductCategoryDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProductCategoryDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-webmvc-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-webmvc-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.mail-api-1.6.2.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/javax.mail-api-1.6.2.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/UserService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/UserService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/service/WishlistService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/WishlistService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/NoticeDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/NoticeDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/OrdDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrdDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dto/OrdDetailDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/OrdDetailDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-core-2.9.10.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/jackson-core-2.9.10.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/ProductServiceImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProductServiceImpl.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jcl-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-jcl-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-databind-2.9.10.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/jackson-databind-2.9.10.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/jstl-1.2.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-beans-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-beans-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-context-5.0.7.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/LoginServiceImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/LoginServiceImpl.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/dto/SellerDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/SellerDTO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/lgy/product_sales_platform/dao/ProductCategoryDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ProductCategoryDAO.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/activation-1.1.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/activation-1.1.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/classes/com/lgy/product_sales_platform/service/CartService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/CartService.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.inject-1.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/javax.inject-1.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.1.4.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-jdbc-4.1.4.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/ojdbc11-21.5.0.0.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/ojdbc11-21.5.0.0.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-io-2.6.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/commons-io-2.6.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-tx-4.1.4.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-tx-4.1.4.RELEASE.jar" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-support-5.0.7.RELEASE.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/revert_전에_커밋되지_않은_변경_내용_[변경]2/spring-context-support-5.0.7.RELEASE.jar" />
+  </binary>
+</changelist>

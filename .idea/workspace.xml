@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="product_sales_platform:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="313f22ff-9d7d-41ee-8d8f-ca079a2ac6a4" name="변경" comment="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hangh1022&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CSJ-094/Product-sales-platform.git&quot;,
+    &quot;accountId&quot;: &quot;ba0343bf-88a7-43e6-8517-91ab49920182&quot;
+  }
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="34AaBqd99AmytdGzlGJuAf2qlVs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.product_sales_platform [clean].executor": "Run",
+    "Maven.product_sales_platform [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Tomcat 서버.Tomcat 9.0.108.executor": "Run",
+    "Tomcat 서버.dd.executor": "Run",
+    "git-widget-placeholder": "2025-10-25",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/KH/Downloads/Product-sales-platform-main (2)/Product-sales-platform-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
+    ],
+    "DatabaseDriversLRU": [
+      "oracle.jdbc.driver.OracleDriver"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\KH\Downloads\Product-sales-platform-main (2)\Product-sales-platform-main\product_sales_platform\src\main\webapp\img\woman" />
+      <recent name="C:\Users\KH\Downloads\Product-sales-platform-main (2)\Product-sales-platform-main\product_sales_platform\src\main\webapp\img\man" />
+      <recent name="C:\Users\KH\Downloads\Product-sales-platform-main (2)\Product-sales-platform-main\product_sales_platform\src\main\java\com\lgy\product_sales_platform\dao\mapper" />
+      <recent name="C:\Users\KH\Downloads\Product-sales-platform-main (2)\Product-sales-platform-main\product_sales_platform\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KH\Downloads\Product-sales-platform-main (2)\Product-sales-platform-main\product_sales_platform\src\main\resources\com\lgy\product_sales_platform\dao\mapper" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+          <value>
+            <map>
+              <entry key="Tomcat 9.0.108" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.108" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.108" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="product_sales_platform:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/product_sales_platform_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="c9b9c790-99c8-4972-8129-5b61e38c62c3" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52735" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="product_sales_platform:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="313f22ff-9d7d-41ee-8d8f-ca079a2ac6a4" name="변경" comment="" />
+      <created>1760658697573</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760658697573</updated>
+      <workItem from="1760658698926" duration="1716000" />
+      <workItem from="1760660442550" duration="212000" />
+      <workItem from="1760660679142" duration="7399000" />
+      <workItem from="1760668565416" duration="1903000" />
+      <workItem from="1760670489655" duration="5820000" />
+      <workItem from="1760679366989" duration="2600000" />
+      <workItem from="1760682169582" duration="28000" />
+      <workItem from="1760683907013" duration="395000" />
+      <workItem from="1760684341295" duration="314000" />
+    </task>
+    <task id="LOCAL-00001" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760678276372</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760678276372</updated>
+    </task>
+    <task id="LOCAL-00002" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760680244067</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760680244067</updated>
+    </task>
+    <task id="LOCAL-00003" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760680277836</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760680277836</updated>
+    </task>
+    <task id="LOCAL-00004" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760680411172</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760680411172</updated>
+    </task>
+    <task id="LOCAL-00005" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760681187165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760681187165</updated>
+    </task>
+    <task id="LOCAL-00006" summary="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정">
+      <option name="closed" value="true" />
+      <created>1760681235418</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760681235418</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="        기능: 상품 및 마이페이지 목록/상세에 이미지 미리보기 추가&#10;&#10;        - 상품, 판매자, 마이페이지(장바구니, 찜, 주문내역)에 상품 대표 이미지 표시&#10;        - DTO, DAO, Service, Controller 관련 로직 수정" />
+  </component>
+</project>

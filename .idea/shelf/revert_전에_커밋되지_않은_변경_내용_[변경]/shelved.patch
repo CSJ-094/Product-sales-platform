@@ -1,0 +1,27 @@
+diff --git a/product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/OrderDetailDAO.xml b/product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/OrderDetailDAO.xml
+rename from product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/OrderDetailDAO.xml
+rename to product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/OrderDetailDAO.xml
+diff --git a/product_sales_platform/src/main/webapp/WEB-INF/views/product/productDetail.jsp b/product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/product/productDetail.jsp
+rename from product_sales_platform/src/main/webapp/WEB-INF/views/product/productDetail.jsp
+rename to product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/product/productDetail.jsp
+diff --git a/product_sales_platform/src/main/webapp/WEB-INF/views/seller/productDetail.jsp b/product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/productDetail.jsp
+rename from product_sales_platform/src/main/webapp/WEB-INF/views/seller/productDetail.jsp
+rename to product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/productDetail.jsp
+diff --git a/product_sales_platform/src/main/webapp/WEB-INF/views/seller/products.jsp b/product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/products.jsp
+rename from product_sales_platform/src/main/webapp/WEB-INF/views/seller/products.jsp
+rename to product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/products.jsp
+diff --git a/product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/WishlistDAO.xml b/product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/WishlistDAO.xml
+rename from product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/WishlistDAO.xml
+rename to product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/WishlistDAO.xml
+diff --git a/product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/CartDAO.xml b/product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/CartDAO.xml
+rename from product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/CartDAO.xml
+rename to product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/CartDAO.xml
+diff --git a/product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/ImageDAO.xml b/product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/ImageDAO.xml
+rename from product_sales_platform/src/main/resources/com/lgy/product_sales_platform/dao/mapper/ImageDAO.xml
+rename to product_sales_platform/target/classes/com/lgy/product_sales_platform/dao/mapper/ImageDAO.xml
+diff --git a/product_sales_platform/src/main/webapp/WEB-INF/views/seller/mypage.jsp b/product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/mypage.jsp
+rename from product_sales_platform/src/main/webapp/WEB-INF/views/seller/mypage.jsp
+rename to product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/seller/mypage.jsp
+diff --git a/product_sales_platform/src/main/webapp/WEB-INF/views/user/mypage.jsp b/product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/user/mypage.jsp
+rename from product_sales_platform/src/main/webapp/WEB-INF/views/user/mypage.jsp
+rename to product_sales_platform/target/product_sales_platform-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/user/mypage.jsp
