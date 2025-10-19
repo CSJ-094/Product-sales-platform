@@ -549,13 +549,13 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>상품 ID</th>
+                                <th style="width: 80px;">상품 ID</th>
                                 <th>상품명</th>
-                                <th>가격</th>
+                                <th style="width: 100px;">가격</th>
                                 <th>판매자</th>
                                 <th>재고</th>
-                                <th style="width: 100px;">삭제</th>
-                                <th style="width: 150px;">장바구니 이동</th>
+                                <th style="width: 90px;">삭제</th>
+                                <th style="width: 160px;">장바구니 이동</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -563,7 +563,7 @@
                                 <tr>
                                     <td>${product.prodId}</td>
                                     <td>${product.prodName}</td>
-                                    <td><fmt:formatNumber value="${product.prodPrice}" type="currency" currencySymbol="₩"/></td>
+                                    <td><fmt:formatNumber value="${product.prodPrice}" pattern="#,###" />원</td>
                                     <td>${product.prodSeller}</td>
                                     <td>${product.prodStock}</td>
                                     <td>
@@ -612,9 +612,9 @@
                                 <tr>
                                     <td>${order.ordId}</td>
                                     <td><fmt:formatDate value="${order.ordDate}" pattern="yyyy-MM-dd"/></td>
-                                    <td><fmt:formatNumber value="${order.ordAmount}" type="currency" currencySymbol="₩"/></td>
-                                    <td><fmt:formatNumber value="${order.ordDiscount}" type="currency" currencySymbol="₩"/></td>
-                                    <td><fmt:formatNumber value="${order.ordDfee}" type="currency" currencySymbol="₩"/></td>
+                                    <td><fmt:formatNumber value="${order.ordAmount}" pattern="#,###" />원</td>
+                                    <td><fmt:formatNumber value="${order.ordDiscount}" pattern="#,###" />원</td>
+									<td><fmt:formatNumber value="${order.ordDfee}" pattern="#,###" />원</td>
                                     <td>${order.ordStatus}</td>
                                     <td>
                                         <a href="/order/detail?ordId=${order.ordId}" class="action-btn">상세</a>

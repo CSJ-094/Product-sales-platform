@@ -77,7 +77,6 @@ public class FindController {
 		log.info("@# findPwCheck() - 비밀번호 찾기 처리. ID: " + loginDTO.getMemberId() + 
 				", Name: " + loginDTO.getMemberName() + ", Email: " + loginDTO.getMemberEmail());
 		
-		// Service 메서드 findPw의 반환 타입이 ArrayList<LoginDTO> 라고 가정합니다.
 		// (LoginService 인터페이스를 보면 findPw는 ArrayList<LoginDTO>를 반환해야 합니다.)
 		ArrayList<LoginDTO> dtos = loginService.findPw(loginDTO);
 		

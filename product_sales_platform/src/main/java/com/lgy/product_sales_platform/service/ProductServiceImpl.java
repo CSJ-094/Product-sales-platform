@@ -32,6 +32,19 @@ public class ProductServiceImpl implements ProductService {
     private final ProductCategoryDAO productCategoryDAO;
     private final ImageDAO imageDAO; // @RequiredArgsConstructor를 통해 주입됨
 
+    @Override
+    public List<ProdDTO> selectProductsByCategory(int catId) {
+        log.info("@# selectProdsByCategory(catId: {}) - 메인 상품 조회", catId);
+        
+        return prodDAO.selectProductsByCategory(catId); 
+    }
+    
+    @Override
+    public List<ProdDTO> getAllProdsByCatId(int catId) {
+        log.info("@# getAllProdsByCatId(catId: {}) - 카테고리 전체 상품 조회", catId);
+        return prodDAO.getAllProdsByCatId(catId); 
+    }
+    
     // 1. [Read 기능] 상품 상세 조회
     @Override
     public ProdDTO getProductById(Integer prodId) {
@@ -108,7 +121,7 @@ public class ProductServiceImpl implements ProductService {
         }
         productCategoryDAO.bulkInsert(list);
     }
-    
+
     @Override
     @Transactional
     public void updateProductWithCategories(ProdDTO form, List<Long> catIds, Long mainCatId) {

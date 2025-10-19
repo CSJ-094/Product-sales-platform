@@ -145,7 +145,10 @@ p {
                 </c:otherwise>
             </c:choose>
             <div style="margin-top: 30px;">
-                <a href="login" class="login-link">로그인 페이지로</a>
+                <a href='<c:url value="/login"/>' class="login-link">로그인 페이지로</a>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="findPw" class="login-link">비밀번호 찾기</a>
             </div>
         </div>
     </div>

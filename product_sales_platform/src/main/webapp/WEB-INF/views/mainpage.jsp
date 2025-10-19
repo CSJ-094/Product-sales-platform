@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -339,34 +340,35 @@ ul {
 
 		<nav class="category-nav">
 			<ul class="category-list">
-				<li class="category-item"><a href="${pageContext.request.contextPath}/category/mans">MANS</a>
-				<ul class="sub-category">
+				<li class="category-item"><a
+					href="${pageContext.request.contextPath}/category/mans">MANS</a>
+					<ul class="sub-category">
 						<li><a href="/category/mans/top">상의</a></li>
 						<li><a href="/category/mans/bottom">하의</a></li>
 						<li><a href="/category/mans/outer">아우터</a></li>
 						<li><a href="/category/mans/acc">모자/액세서리</a></li>
 					</ul></li>
 				<li class="category-item"><a href="/category/women">WOMEN</a>
-				<ul class="sub-category">
+					<ul class="sub-category">
 						<li><a href="/category/women/top">블라우스/티셔츠</a></li>
 						<li><a href="/category/women/dress">원피스</a></li>
 						<li><a href="/category/women/skirt">스커트</a></li>
 						<li><a href="/category/women/bag">가방/잡화</a></li>
 					</ul></li>
 				<li class="category-item"><a href="/category/unisex">UNISEX</a>
-				<ul class="sub-category">
+					<ul class="sub-category">
 						<li><a href="/category/unisex/top">상의</a></li>
 						<li><a href="/category/unisex/bottom">하의</a></li>
 						<li><a href="/category/unisex/outer">아우터</a></li>
 						<li><a href="/category/unisex/shoes">신발</a></li>
 					</ul></li>
 				<li class="category-item"><a href="/category/sports">SPORTS</a>
-				<ul class="sub-category">
+					<ul class="sub-category">
 						<li><a href="/category/sports/top">상의</a></li>
 						<li><a href="/category/sports/bottom">하의</a></li>
 						<li><a href="/category/sports/outer">아우터</a></li>
 						<li><a href="/category/sports/shoes">신발</a></li>
-				</ul></li>
+					</ul></li>
 			</ul>
 		</nav>
 	</header>
@@ -390,15 +392,18 @@ ul {
 				<c:choose>
 					<c:when test="${not empty mansRecommendList}">
 						<c:forEach var="product" items="${mansRecommendList}">
-							<a href="#">
+							<a
+								href="${pageContext.request.contextPath}/product/detail?id=${product.prodId}">
 								<div class="product-item">
 									<div class="product-img">
-										<img src="${product.prodImage}" alt="상품 이미지"
-											style="width: 100%; height: auto;">
+										<img
+											src="${pageContext.request.contextPath}${product.prodImgPath}"
+											alt="${product.prodName}" style="width: 100%; height: auto;">
 									</div>
 									<div class="product-info">
 										<p>${product.prodName}</p>
-										<span>${product.prodPrice}</span>
+										<span><fmt:formatNumber value="${product.prodPrice}"
+												type="number" />원</span>
 									</div>
 								</div>
 							</a>
@@ -416,22 +421,25 @@ ul {
 				<c:choose>
 					<c:when test="${not empty womansRecommendList}">
 						<c:forEach var="product" items="${womansRecommendList}">
-							<a href="#">
+							<a
+								href="${pageContext.request.contextPath}/product/detail?id=${product.prodId}">
 								<div class="product-item">
 									<div class="product-img">
-										<img src="${product.prodImage}" alt="상품 이미지"
-											style="width: 100%; height: auto;">
+										<img
+											src="${pageContext.request.contextPath}${product.prodImgPath}"
+											alt="${product.prodName}" style="width: 100%; height: auto;">
 									</div>
 									<div class="product-info">
 										<p>${product.prodName}</p>
-										<span>${product.prodPrice}</span>
+										<span><fmt:formatNumber value="${product.prodPrice}"
+												type="number" />원</span>
 									</div>
 								</div>
 							</a>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						<p style="grid-column: span 4; color: #777;">현재 MANS 추천 상품 기능
+						<p style="grid-column: span 4; color: #777;">현재 WOMEN 인기 상품 기능
 							준비 중입니다.</p>
 					</c:otherwise>
 				</c:choose>

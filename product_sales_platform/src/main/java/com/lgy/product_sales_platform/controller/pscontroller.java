@@ -17,6 +17,7 @@ import com.lgy.product_sales_platform.dto.ProdDTO;
 import com.lgy.product_sales_platform.dto.OrdDTO;
 import com.lgy.product_sales_platform.service.WishlistService;
 import com.lgy.product_sales_platform.service.OrderService;
+import com.lgy.product_sales_platform.service.ProductService;
 
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;

@@ -133,7 +133,7 @@ p {
     <div class="content-wrapper">
         <div class="result-box">
             <c:choose>
-                <c:when test="${not empty dtos}">
+                <c:when test="${not empty member}">
                     <h2>비밀번호 재설정 완료</h2>
                     <p>
                         회원님의 정보가 확인되었습니다.
@@ -153,7 +153,7 @@ p {
             </c:choose>
             
             <div style="margin-top: 30px;">
-                <a href="login" class="login-link">로그인 페이지로</a>
+                <a href='<c:url value="/login"/>' class="login-link">로그인 페이지로</a>
             </div>
         </div>
     </div>

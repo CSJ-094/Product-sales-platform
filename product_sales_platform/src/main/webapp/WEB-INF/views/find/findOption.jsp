@@ -159,7 +159,7 @@ a:hover { color: #886030; }
                 <a href="findId" class="btn btn-id">아이디 찾기</a>
                 <a href="findPw" class="btn btn-pw">비밀번호 찾기</a>
             </div>
-            <a href="login" class="back-link">로그인 페이지로 돌아가기</a>
+            <a href='<c:url value="/login"/>' class="back-link">로그인 페이지로 돌아가기</a>
         </div>
     </div>
 

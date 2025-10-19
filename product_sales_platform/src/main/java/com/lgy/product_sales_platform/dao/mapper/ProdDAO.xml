@@ -31,6 +31,7 @@
 		<result column="PROD_CODE" property="prodCode" />
 		<result column="PROD_REG" property="prodReg" />
 		<result column="PROD_UPD" property="prodUpd" />
+		<result property="prodImgPath" column="PROD_IMG_PATH" /> 
 	</resultMap>
 
 	<!-- 목록 -->
@@ -50,12 +51,6 @@
 		WHERE PROD_ID = #{prodId}
 	</select>
 
-<!-- 
-  ORACLE에서는 null 파라미터의 타입을 자동 인식하지 못하므로
-  prodSeller, prodDesc, prodCode, prodReg 등 null 가능 필드에는 
-  jdbcType을 명시해 주어야 한다.
-  (명시하지 않으면 "부적합한 열 유형: 1111" 오류 발생)
--->
 <!-- 	등록 (PROD_ID: 시퀀스 사용) -->
 	<insert id="insertProduct"
 		parameterType="com.lgy.product_sales_platform.dto.ProdDTO">
@@ -104,5 +99,56 @@
 		WHERE PROD_ID = #{prodId}
 	</delete>
   
-  
+  <select id="selectProductsByCategory" parameterType="int" 
+            resultMap="ProductMap"> 
+            SELECT * FROM (
+        	SELECT 
+            P.PROD_ID,
+            P.PROD_NAME,
+            P.PROD_PRICE,
+            I.IMG_PATH AS PROD_IMG_PATH,
+            ROWNUM AS RNUM              FROM 
+            PRODUCT_DB P
+        JOIN 
+            PRODUCT_CATEGORY_DB PC 
+        ON 
+            P.PROD_ID = PC.PROD_ID
+        LEFT JOIN 
+            IMAGE_DB I 
+        ON 
+            P.PROD_ID = I.IMG_PROD_ID AND I.IMG_MAIN = 'Y'
+        WHERE
+            PC.CAT_ID = #{catId}  
+        ORDER BY 
+            P.PROD_REG DESC       
+    )
+    WHERE RNUM &lt;= 4
+    </select>
+    
+    <select id="getAllProdsByCatId" parameterType="int" 
+        resultMap="ProductMap">
+    
+    SELECT * FROM (
+        SELECT 
+            P.PROD_ID,
+            P.PROD_NAME,
+            P.PROD_PRICE,
+            I.IMG_PATH AS PROD_IMG_PATH,
+            ROWNUM AS RNUM              
+        FROM 
+            PRODUCT_DB P
+        JOIN 
+            PRODUCT_CATEGORY_DB PC 
+        ON 
+            P.PROD_ID = PC.PROD_ID
+        LEFT JOIN 
+            IMAGE_DB I 
+        ON 
+            P.PROD_ID = I.IMG_PROD_ID AND I.IMG_MAIN = 'Y'
+        WHERE
+            PC.CAT_ID = #{catId}  
+        ORDER BY 
+            P.PROD_REG DESC       
+    )
+    </select>
 </mapper>

@@ -1,24 +1,46 @@
 package com.lgy.product_sales_platform.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.lgy.product_sales_platform.service.ProductService;
+import com.lgy.product_sales_platform.service.ProductService; 
+import com.lgy.product_sales_platform.dto.ProdDTO;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 public class MainController {
-	    @Autowired
-	    private ProductService productService; // 상품 추천 목록을 가져오기 위한 Service
+    
+    @Autowired
+    private ProductService productService; 
 
-	    @GetMapping("/mainpage")
-	    public String mainPage(Model model) {
-//	        // 예시: 상품 서비스에서 추천 목록을 가져와 Model에 담아 JSP로 전달
-//	        model.addAttribute("mansRecommendList", productService.getRecommendList("MANS"));
-//	        model.addAttribute("womenRecommendList", productService.getRecommendList("WOMEN"));
-//
-//	        // "main"이라는 이름의 뷰를 반환 (-> main.jsp)
-	        return "mainpage"; 
-	    }
-	}
+    @GetMapping({"/", "/mainpage"})
+    public String mainPage(Model model) {
+        log.info("@# mainPage() - 메인 페이지 상품 목록 조회 시작");
+
+        final int MANS_CAT_ID = 5;
+        final int WOMANS_CAT_ID = 9;
+
+        try {
+            List<ProdDTO> mansList = productService.selectProductsByCategory(MANS_CAT_ID); 
+            model.addAttribute("mansRecommendList", mansList);
+            log.info("@# 남성 추천 상품 {}개 조회 완료.", mansList.size());
+
+            List<ProdDTO> womansList = productService.selectProductsByCategory(WOMANS_CAT_ID); 
+            model.addAttribute("womansRecommendList", womansList); // JSP의 변수명(womansRecommendList) 확인
+            log.info("@# 여성 인기 상품 {}개 조회 완료.", womansList.size());
+            
+        } catch (Exception e) {
+            log.error("메인 페이지 상품 조회 중 오류 발생: {}", e.getMessage());
+            model.addAttribute("mansRecommendList", List.of());
+            model.addAttribute("womansRecommendList", List.of());
+        }
+        
+        return "mainpage";
+    }
+}

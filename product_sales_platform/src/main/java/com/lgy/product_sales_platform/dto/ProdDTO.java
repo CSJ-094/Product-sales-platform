@@ -22,4 +22,5 @@ public class ProdDTO {
 	private String prodCode;
 	private Timestamp prodReg;
 	private Timestamp prodUpd;
+	private String prodImgPath;
 }
