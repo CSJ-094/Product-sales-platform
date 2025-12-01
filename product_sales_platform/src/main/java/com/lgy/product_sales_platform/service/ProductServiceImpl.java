@@ -25,12 +25,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ProductServiceImpl implements ProductService {
 
-    // ⭐️ 파일 저장 경로: 실제 서버 경로로 변경해야 합니다.
     private static final String UPLOAD_DIR = "C:/temp/product_upload/images"; 
 
     private final ProdDAO prodDAO;
     private final ProductCategoryDAO productCategoryDAO;
-    private final ImageDAO imageDAO; // @RequiredArgsConstructor를 통해 주입됨
+    private final ImageDAO imageDAO;
 
     @Override
     public List<ProdDTO> selectProductsByCategory(int catId) {
@@ -55,7 +54,6 @@ public class ProductServiceImpl implements ProductService {
     // 2. [Admin 기능] 상품 등록
     @Override
     @Transactional
-    // ⭐️ MultipartFile file 매개변수 추가
     public void createProductWithCategories(ProdDTO product, List<Long> catIds, Long mainCatId, MultipartFile file) {
         
         // 1. 상품 등록: MyBatis <selectKey>를 통해 product.getProdId()에 ID가 채워집니다.
@@ -72,7 +70,7 @@ public class ProductServiceImpl implements ProductService {
                 // 파일명 중복 방지 (UUID 사용)
                 String savedFileName = UUID.randomUUID().toString() + fileExtension; 
                 
-                // DB에 저장할 웹 접근 경로 (Spring Resource Handler 설정과 일치해야 함)
+                // DB에 저장할 웹 접근 경로
                 String savedFilePath = "/upload/images/" + savedFileName; 
                 
                 File uploadDirectory = new File(UPLOAD_DIR);
