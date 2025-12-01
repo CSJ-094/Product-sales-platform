@@ -15,7 +15,7 @@ import com.lgy.product_sales_platform.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/category") // /category로 시작하는 요청 처리
+@RequestMapping("/category")
 @Slf4j
 public class CategoryController {
 
@@ -26,13 +26,11 @@ public class CategoryController {
     @GetMapping("/mans")
     public String mansCategoryPage(Model model) {
         
-        final int MANS_CAT_ID = 5; // 실제 MANS 카테고리 ID
+        final int MANS_CAT_ID = 5;
         
         try {
-            // ⭐️ 전체 상품을 가져오는 메서드 호출
             List<ProdDTO> mansList = productService.getAllProdsByCatId(MANS_CAT_ID); 
             
-            // JSP가 요구하는 변수명 mansList에 담아서 전달
             model.addAttribute("mansList", mansList); 
             log.info("@# MANS 카테고리 전체 상품 {}개 조회 완료.", mansList.size());
             
@@ -41,7 +39,6 @@ public class CategoryController {
             model.addAttribute("mansList", List.of());
         }
         
-        // 뷰 이름을 "category/mans"로 가정합니다. (-> /WEB-INF/views/category/mans.jsp)
         return "category/mans"; 
     }
 }
