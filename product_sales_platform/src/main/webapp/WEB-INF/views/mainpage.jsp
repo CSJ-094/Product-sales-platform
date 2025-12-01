@@ -479,13 +479,13 @@ ul {
                 slide1.style.left = '100%';
 
                 setTimeout(() => {
-                    slide1.style.transition = transitionStyle; // 트랜지션 복구
-                    slide1.style.left = '0%'; // 1번을 화면 중앙으로 슬라이드 인
+                    slide1.style.transition = transitionStyle;
+                    slide1.style.left = '0%';
                 }, 50); 
 
                 setTimeout(() => {
                     slide2.style.transition = 'none';
-                    slide2.style.left = '100%'; // 2번을 오른쪽 화면 밖으로 리셋
+                    slide2.style.left = '100%';
                     
                     setTimeout(() => {
                          slide2.style.transition = transitionStyle;
